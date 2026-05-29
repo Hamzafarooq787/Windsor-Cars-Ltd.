@@ -200,49 +200,38 @@ export default function FleetPage() {
                 </div>
               </div>
 
-              {/* People Carriers – spans full row, centered */}
-              <div className="sm:col-span-2 lg:col-span-3 bg-white rounded-xl overflow-hidden fleet-card-shadow transition-transform duration-300 hover:-translate-y-1">
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="h-64 md:h-auto min-h-[260px] overflow-hidden">
-                    <img
-                      className="w-full h-full object-cover"
-                      alt="Mercedes V-Class people carrier"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0"
-                    />
+              {/* Executive People Carrier - redesigned as standard card */}
+              <div className="bg-white rounded-xl overflow-hidden fleet-card-shadow transition-transform duration-300 hover:-translate-y-1">
+                <div className="h-56 sm:h-64 overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    alt="Mercedes V-Class executive people carrier"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="flex justify-between items-start mb-4 gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-deep-navy">Executive People Carrier</h3>
+                    <span className="bg-surface-container text-on-surface-variant px-3 py-1 rounded text-xs font-medium flex-shrink-0">
+                      6/7/8 Seater
+                    </span>
                   </div>
-                  <div className="p-6 sm:p-8 flex flex-col justify-center">
-                    <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
-                      <h3 className="text-xl sm:text-2xl font-bold text-deep-navy">
-                        Executive People Carriers
-                      </h3>
-                      <span className="bg-surface-container text-on-surface-variant px-3 py-1 rounded text-xs font-medium">
-                        6/7/8 Seater
-                      </span>
-                    </div>
-                    <p className="text-on-surface-variant mb-6 text-sm sm:text-base">
-                      Ideal for group transfers, corporate events, and airport runs. Our luxury
-                      MPVs offer unmatched space without compromising on the executive experience.
-                    </p>
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                      {[
-                        { icon: "group", label: "Up to 8 Pax" },
-                        { icon: "luggage", label: "Ample Luggage" },
-                        { icon: "wifi", label: "High-speed WiFi" },
-                        { icon: "usb", label: "Multi-chargers" },
-                      ].map((f) => (
-                        <div key={f.label} className="flex items-center gap-2 text-on-surface-variant">
-                          <span className="material-symbols-outlined text-primary text-[18px]">{f.icon}</span>
-                          <span className="text-xs sm:text-sm">{f.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <Link
-                      href="/contact"
-                      className="block w-full bg-primary text-white py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base text-center hover:bg-deep-navy transition-colors"
-                    >
-                      Book Large Vehicle
-                    </Link>
+                  <div className="grid grid-cols-2 gap-3 mb-5">
+                    {[
+                      { icon: "group", label: "Up to 8 Pax" },
+                      { icon: "luggage", label: "Ample Luggage" },
+                      { icon: "wifi", label: "High-speed WiFi" },
+                      { icon: "usb", label: "Multi-chargers" },
+                    ].map((f) => (
+                      <div key={f.label} className="flex items-center gap-2 text-on-surface-variant">
+                        <span className="material-symbols-outlined text-primary text-[18px]">{f.icon}</span>
+                        <span className="text-xs sm:text-sm">{f.label}</span>
+                      </div>
+                    ))}
                   </div>
+                  <Link href="/contact" className="block w-full bg-deep-navy text-white py-3 rounded-lg font-semibold text-sm text-center hover:bg-primary transition-colors">
+                    Book People Carrier
+                  </Link>
                 </div>
               </div>
             </div>
