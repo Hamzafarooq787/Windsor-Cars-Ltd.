@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   const testimonialContainerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLElement>(null);
+  const [countStarted, setCountStarted] = useState(false);
+  const [counts, setCounts] = useState({ vehicles: 0, transfers: 0, founded: 1980 });
 
   const scrollTestimonials = (direction: number) => {
     if (testimonialContainerRef.current) {
@@ -17,13 +21,43 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !countStarted) {
+          setCountStarted(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, [countStarted]);
+
+  useEffect(() => {
+    if (!countStarted) return;
+    const duration = 2000;
+    const startTime = Date.now();
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCounts({
+        vehicles: Math.round(eased * 250),
+        transfers: Math.round(eased * 3000),
+        founded: Math.round(1980 + eased * 11),
+      });
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [countStarted]);
+
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section – Form centered, no header overlap */}
-        <section className="relative min-h-screen flex items-center overflow-hidden bg-deep-navy pt-20 md:pt-24">
-          {/* Background Image & Overlay */}
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center overflow-hidden bg-deep-navy pt-16 sm:pt-20 md:pt-24">
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover opacity-70"
@@ -33,10 +67,8 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/80 to-transparent"></div>
           </div>
 
-          {/* Content Container */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
-
               {/* Left Text Content */}
               <div className="flex-1 text-center lg:text-left space-y-5 sm:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
@@ -46,17 +78,23 @@ export default function Home() {
                   Founded 1991. Over 250 cars and 3,000+ weekly airport transfers. 24/7 service with no extra charges after midnight.
                 </p>
                 <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
-                  <button className="bg-primary text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:scale-105 transition-transform">
+                  <Link
+                    href="/contact"
+                    className="bg-primary text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:scale-105 transition-transform inline-block"
+                  >
                     Quick Quote
-                  </button>
-                  <button className="border-2 border-white text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-white/10 transition-all">
+                  </Link>
+                  <Link
+                    href="/fleet"
+                    className="border-2 border-white text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-white/10 transition-all inline-block"
+                  >
                     View Our Fleet
-                  </button>
+                  </Link>
                 </div>
               </div>
 
-              {/* Booking Form – Centered, compact, and properly aligned */}
-              <div className="w-full max-w-md sm:max-w-sm bg-white rounded-xl p-5 sm:p-6 shadow-xl text-gray-800">
+              {/* Booking Form */}
+              <div className="w-full max-w-sm sm:max-w-sm bg-white rounded-xl p-5 sm:p-6 shadow-xl text-gray-800">
                 <h2 className="text-lg sm:text-xl font-bold text-deep-navy mb-4">Book Your Journey</h2>
                 <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                   <div>
@@ -81,20 +119,20 @@ export default function Home() {
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold mb-1.5">Pickup Date</label>
                       <div className="relative">
                         <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xl">calendar_today</span>
                         <input
-                          className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-gray-300 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary transition-all text-sm"
+                          className="w-full pl-9 pr-1 py-2.5 rounded-lg border border-gray-300 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary transition-all text-sm"
                           type="date"
                         />
                       </div>
                     </div>
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold mb-1.5">Pickup Time</label>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1">
                         <select
                           className="w-1/2 p-2.5 rounded-lg border border-gray-300 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary text-sm"
                           defaultValue="HH"
@@ -104,7 +142,6 @@ export default function Home() {
                             <option key={i}>{i.toString().padStart(2, "0")}</option>
                           ))}
                         </select>
-
                         <select
                           className="w-1/2 p-2.5 rounded-lg border border-gray-300 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary text-sm"
                           defaultValue="MM"
@@ -139,31 +176,37 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Row – Responsive */}
-        <section className="bg-primary py-10 sm:py-12 text-white">
+        {/* Stats Row – Animated Counters */}
+        <section ref={statsRef} className="bg-primary py-10 sm:py-12 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 text-center">
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold">250+</div>
-                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80">Vehicles</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums">
+                  {counts.vehicles}+
+                </div>
+                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80 mt-1">Vehicles</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold">3,000+</div>
-                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80">Weekly Transfers</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums">
+                  {counts.transfers.toLocaleString()}+
+                </div>
+                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80 mt-1">Weekly Transfers</div>
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold">24/7</div>
-                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80">Service</div>
+                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80 mt-1">Service</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold">1991</div>
-                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80">Founded</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums">
+                  {counts.founded}
+                </div>
+                <div className="text-xs sm:text-sm uppercase tracking-wider opacity-80 mt-1">Founded</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Bento Grid – Responsive heights */}
+        {/* Services Bento Grid */}
         <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-12 text-center">
@@ -180,7 +223,9 @@ export default function Home() {
                   <span className="material-symbols-outlined text-3xl sm:text-4xl mb-2 block" style={{ fontVariationSettings: "'FILL' 1" }}>flight_takeoff</span>
                   <h3 className="text-xl sm:text-2xl font-bold mb-1">Airport Transfers</h3>
                   <p className="text-sm sm:text-base opacity-80 max-w-md">Real-time flight monitoring and meet-and-greet at all major London airports.</p>
-                  <a href="#" className="mt-3 inline-flex items-center gap-1 text-primary-fixed hover:underline text-sm">Learn More <span className="material-symbols-outlined text-base">arrow_forward</span></a>
+                  <Link href="/services" className="mt-3 inline-flex items-center gap-1 text-primary-fixed hover:underline text-sm">
+                    Learn More <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
                 </div>
               </div>
               <div className="md:col-span-4 relative group overflow-hidden rounded-xl shadow-lg h-72 md:h-auto min-h-[280px]">
@@ -189,6 +234,9 @@ export default function Home() {
                 <div className="absolute bottom-0 p-4 sm:p-6 text-white">
                   <h3 className="text-xl sm:text-2xl font-bold mb-1">Executive Travel</h3>
                   <p className="text-sm sm:text-base opacity-80">Premium corporate solutions for busy professionals.</p>
+                  <Link href="/services" className="mt-3 inline-flex items-center gap-1 text-primary-fixed hover:underline text-sm">
+                    Learn More <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
                 </div>
               </div>
               <div className="md:col-span-4 relative group overflow-hidden rounded-xl shadow-lg h-72 md:h-auto min-h-[280px]">
@@ -197,6 +245,9 @@ export default function Home() {
                 <div className="absolute bottom-0 p-4 sm:p-6 text-white">
                   <h3 className="text-xl sm:text-2xl font-bold mb-1">London City</h3>
                   <p className="text-sm sm:text-base opacity-80">Navigate the city in unparalleled comfort and style.</p>
+                  <Link href="/services" className="mt-3 inline-flex items-center gap-1 text-primary-fixed hover:underline text-sm">
+                    Learn More <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
                 </div>
               </div>
               <div className="md:col-span-8 relative group overflow-hidden rounded-xl shadow-lg h-72 md:h-auto min-h-[280px]">
@@ -205,13 +256,16 @@ export default function Home() {
                 <div className="absolute bottom-0 p-4 sm:p-6 text-white">
                   <h3 className="text-xl sm:text-2xl font-bold mb-1">Weddings</h3>
                   <p className="text-sm sm:text-base opacity-80 max-w-lg">Bespoke wedding car hire to make your special day even more memorable.</p>
+                  <Link href="/services" className="mt-3 inline-flex items-center gap-1 text-primary-fixed hover:underline text-sm">
+                    Learn More <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Choose Us – Responsive cards */}
+        {/* Why Choose Us */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-12 text-center">
@@ -235,7 +289,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Carousel – Improved touch scroll */}
+        {/* Testimonials Carousel */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-between items-end mb-8 sm:mb-12 gap-4">
@@ -244,10 +298,18 @@ export default function Home() {
                 <p className="text-base sm:text-lg text-gray-600">Trusted by thousands of regular travelers across the UK.</p>
               </div>
               <div className="flex gap-2">
-                <button className="p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-all" onClick={() => scrollTestimonials(-1)}>
+                <button
+                  className="p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-all"
+                  onClick={() => scrollTestimonials(-1)}
+                  aria-label="Previous testimonial"
+                >
                   <span className="material-symbols-outlined">chevron_left</span>
                 </button>
-                <button className="p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-all" onClick={() => scrollTestimonials(1)}>
+                <button
+                  className="p-2 sm:p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition-all"
+                  onClick={() => scrollTestimonials(1)}
+                  aria-label="Next testimonial"
+                >
                   <span className="material-symbols-outlined">chevron_right</span>
                 </button>
               </div>
@@ -268,7 +330,7 @@ export default function Home() {
                     <p className="text-sm sm:text-base text-gray-700 italic">"{t.text}"</p>
                   </div>
                   <div className="mt-6 flex items-center gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm sm:text-base">{t.initials}</div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm sm:text-base flex-shrink-0">{t.initials}</div>
                     <div>
                       <h4 className="text-sm sm:text-base font-bold text-deep-navy">{t.name}</h4>
                       <p className="text-xs sm:text-sm opacity-60">{t.role}</p>
@@ -280,7 +342,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* App Download Banner – Responsive stacking */}
+        {/* App Download Banner */}
         <section className="py-12 sm:py-16 bg-deep-navy">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4 sm:space-y-6 text-white text-center md:text-left">
@@ -303,14 +365,14 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="relative w-full max-w-[240px] sm:max-w-sm md:max-w-md">
+            <div className="relative w-full max-w-[220px] sm:max-w-xs md:max-w-sm flex-shrink-0">
               <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
               <img className="relative z-10 w-full rounded-2xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3QuQBM4P8nx7Ah7VDko2vPbhQGS9LIUQ1IOLp6QyswxvyLxkVJBrrAsb1UZjRU1pKccN09ABWCjYwZj-oh3yaRjaPTcnO6gYeZEtizvsbm_qWDnB03Z-ZCKMxeq7NRavagYCplNPPAiZCqSlROlKmYaVfQG50JIlfcxjjtNrIX0jpdenx-D8BHptFNtFK58Xb9McnYMZuu9A1TDAxboJsdcYjiPeF6uYHPmQg0OF-Iz7sWdZUk2EURhxpP5ChLu4ihVBcMFciPXJZ" alt="App mockup" />
             </div>
           </div>
         </section>
 
-        {/* FAQ – Responsive spacing */}
+        {/* FAQ */}
         <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-12 text-center">
@@ -321,18 +383,18 @@ export default function Home() {
                 { q: "How do I book a vehicle?", a: "You can book online via our website, through our mobile app, or by calling our 24/7 dispatch center." },
                 { q: "Do you offer airport meet and greet?", a: "Yes, our chauffeurs provide a professional meet and greet service at all major UK airports." },
                 { q: "Are there extra charges for late-night bookings?", a: "No, Windsor Cars Ltd operates with transparent pricing and no extra charges for bookings after midnight." },
-                { q: "What is your cancellation policy?", a: "We offer flexible cancellations; please refer to our Terms of Service for specific timeframes." },
+                { q: "What is your cancellation policy?", a: "We offer flexible cancellations; please contact us for specific timeframes and requirements." },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                   <button
-                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left hover:bg-gray-50 transition-colors group"
+                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left hover:bg-gray-50 transition-colors"
                     onClick={(e) => {
                       const content = e.currentTarget.nextElementSibling;
                       content?.classList.toggle("hidden");
                     }}
                   >
-                    <span className="font-bold text-deep-navy text-sm sm:text-base">{item.q}</span>
-                    <span className="material-symbols-outlined transition-transform">expand_more</span>
+                    <span className="font-bold text-deep-navy text-sm sm:text-base pr-4">{item.q}</span>
+                    <span className="material-symbols-outlined flex-shrink-0 transition-transform">expand_more</span>
                   </button>
                   <div className="hidden p-4 sm:p-5 pt-0 border-t border-gray-100 text-sm sm:text-base text-gray-700">{item.a}</div>
                 </div>
