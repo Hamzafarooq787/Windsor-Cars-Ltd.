@@ -12,7 +12,8 @@ export default function Footer() {
               <img
                 src="/Windsor Cars ltd logo.webp"
                 alt="Windsor Cars Ltd."
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto object-contain brightness-0 invert"
+                style={{ aspectRatio: "auto" }}
               />
             </div>
             <p className="text-sm opacity-70 leading-relaxed">
