@@ -9,7 +9,11 @@ export default function Footer() {
           {/* Column 1: Company info + social */}
           <div className="sm:col-span-2 md:col-span-1 space-y-4 sm:space-y-6">
             <div className="flex items-center">
-              <span className="text-lg font-bold text-white">Windsor Cars Ltd.</span>
+              <img
+                src="/Windsor Cars ltd logo.webp"
+                alt="Windsor Cars Ltd."
+                className="h-10 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm opacity-70 leading-relaxed">
               Providing premium executive travel and airport transfer solutions since 1991.

@@ -37,9 +37,11 @@ export default function Header() {
     >
       <nav className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center">
-          <span className="text-base sm:text-lg font-bold text-primary">
-            Windsor Cars Ltd.
-          </span>
+          <img
+            src="/Windsor Cars ltd logo.webp"
+            alt="Windsor Cars Ltd."
+            className="h-9 sm:h-11 w-auto"
+          />
         </Link>
 
         {/* Desktop Nav */}
