@@ -10,9 +10,9 @@ export default function Footer() {
           <div className="sm:col-span-2 md:col-span-1 space-y-4 sm:space-y-6">
             <div className="flex items-center">
               <img
-                src="/Windsor Cars ltd logo.webp"
+                src="/Windsor Cars ltd footer logo.webp"
                 alt="Windsor Cars Ltd."
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-12 w-auto object-contain"
                 style={{ aspectRatio: "auto" }}
               />
             </div>
