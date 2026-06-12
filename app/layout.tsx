@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "Windsor Cars Ltd. | Luxury Executive Travel & Airport Transfers",
   description:
     "Founded 1991. Over 250 cars and 3,000+ weekly airport transfers. 24/7 service with no extra charges after midnight.",
+  icons: {
+    icon: "/Windsor Cars Site-Icon.webp",
+    shortcut: "/Windsor Cars Site-Icon.webp",
+    apple: "/Windsor Cars Site-Icon.webp",
+  },
 };
 
 export default function RootLayout({
