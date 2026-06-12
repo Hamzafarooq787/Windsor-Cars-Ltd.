@@ -40,7 +40,8 @@ export default function Header() {
           <img
             src="/Windsor Cars ltd logo.webp"
             alt="Windsor Cars Ltd."
-            className="h-9 sm:h-11 w-auto"
+            className="h-12 sm:h-16 w-auto object-contain"
+            style={{ aspectRatio: "auto" }}
           />
         </Link>
 
