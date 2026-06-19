@@ -6,33 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [countStarted, setCountStarted] = useState(false);
-  const [counts, setCounts] = useState({ vehicles: 0, transfers: 0, founded: 1980 });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [tripType, setTripType] = useState<"oneway" | "return">("oneway");
-
-  useEffect(() => {
-    if (!countStarted) return;
-    const duration = 2000;
-    const startTime = Date.now();
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCounts({
-        vehicles: Math.round(eased * 250),
-        transfers: Math.round(eased * 3000),
-        founded: Math.round(1980 + eased * 11),
-      });
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  }, [countStarted]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setCountStarted(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
 
   const marqueeItems = [
     "Airport Transfers",
@@ -94,7 +69,7 @@ export default function Home() {
     {
       name: "BMW 5 Series",
       badge: "Business Plus",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbJOdCXtB2_JT6SYgZwZALrst5jQB4NK-UwXobhLjBG_f9qf6TFZkySapnzG7FkXF4FUV-Vn9zSRSoDGWOnngXHPHq1FqFF75w-HpMR5z9WezBf6BbXXhf3Gh5daj-Zggd9XlhVzRq-ZVfKLY9A01IeiUNUEzB7Dk_VhmsA6npXMc531dbc9BpkYpWupI-2dOz1AHyu8NbK3OyWeUTOLB2VL1QaMKW164qG1fRvwPex8tNKK1ZFnc4CFOMeDQI8TUJWIeH08UghOBB",
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbJOdCXtB2_JT6SYgZwZALrst5jQB4NK-UwXobhLjBG_f9qf6TFZkySapnzG7FkXF4FUV-Vn9zSRSoDGWOnngXHPHq1FqFF75w-HpMR5z9WezBf6BbXXhf3Gh5daj-Zggd9XlhVzRq-ZZfKLY9A01IeiUNUEzB7Dk_VhmsA6npXMc531dbc9BpkYpWupI-2dOz1AHyu8NbK3OyWeUTOLB2VL1QaMKW164qG1fRvwPex8tNKK1ZFnc4CFOMeDQI8TUJWIeH08UghOBB",
     },
     {
       name: "Audi A6/A8",
@@ -103,7 +78,7 @@ export default function Home() {
     },
     {
       name: "Mercedes V-Class",
-      badge: "6-8 Seater MPV",
+      badge: "6–8 Seater MPV",
       img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0",
     },
     {
@@ -166,7 +141,7 @@ export default function Home() {
       <Header />
       <main>
         {/* ===== 1. HERO ===== */}
-        <section className="relative min-h-screen flex flex-col overflow-hidden bg-deep-navy">
+        <section className="relative flex flex-col overflow-hidden bg-deep-navy">
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover opacity-20"
@@ -183,7 +158,7 @@ export default function Home() {
                   key={i}
                   className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-medium uppercase tracking-widest mx-6"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/60 inline-block"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/60 inline-block" />
                   {item}
                 </span>
               ))}
@@ -191,63 +166,81 @@ export default function Home() {
           </div>
 
           {/* Main hero content */}
-          <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 w-full items-center">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-10 sm:py-14 lg:py-20">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start lg:items-center">
+
               {/* Left: Text + trust badges */}
-              <div className="flex-1 text-center lg:text-left space-y-6">
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <div className="flex-1 text-center lg:text-left space-y-5">
+                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   Available 24/7 — Book Instantly
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
                   Luxury Executive Travel &amp; Airport Transfers
                 </h1>
 
-                <p className="text-base sm:text-lg opacity-80 text-white max-w-lg mx-auto lg:mx-0">
+                <p className="text-sm sm:text-base opacity-80 text-white max-w-lg mx-auto lg:mx-0">
                   Windsor Cars Ltd — delivering premium chauffeur services since 1991. Professional, punctual, and perfectly presented for every journey.
                 </p>
 
-                {/* Trust badge cards */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
+                {/* Trust badge grid — 3-column on all sizes */}
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-1 max-w-xs sm:max-w-sm mx-auto lg:mx-0">
                   {[
                     { icon: "history", label: "Founded", value: "1991" },
                     { icon: "directions_car", label: "Vehicles", value: "250+" },
-                    { icon: "swap_horiz", label: "Weekly Transfers", value: "3000+" },
+                    { icon: "swap_horiz", label: "Transfers", value: "3000+" },
                   ].map((b) => (
                     <div
                       key={b.label}
-                      className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-center min-w-[100px]"
+                      className="bg-white/10 border border-white/20 rounded-xl px-2 py-3 text-white text-center"
                     >
                       <span
-                        className="material-symbols-outlined text-primary-fixed text-xl mb-1 block"
+                        className="material-symbols-outlined text-primary-fixed text-lg sm:text-xl mb-1 block"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                       >
                         {b.icon}
                       </span>
-                      <div className="text-lg font-bold">{b.value}</div>
-                      <div className="text-xs opacity-70">{b.label}</div>
+                      <div className="text-base sm:text-lg font-bold leading-none">{b.value}</div>
+                      <div className="text-[10px] sm:text-xs opacity-70 mt-0.5">{b.label}</div>
                     </div>
                   ))}
                 </div>
+
+                {/* Mobile-only CTA (visible before form scrolls into view) */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-1 lg:hidden">
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-primary-container transition-all active:scale-[0.98]"
+                  >
+                    Book Now
+                    <span className="material-symbols-outlined text-base">arrow_forward</span>
+                  </Link>
+                  <a
+                    href="tel:+441753677677"
+                    className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-xl font-bold text-sm"
+                  >
+                    <span className="material-symbols-outlined text-base">call</span>
+                    01753 677 677
+                  </a>
+                </div>
               </div>
 
-              {/* Right: Professional Booking Form */}
-              <div className="w-full max-w-md flex-shrink-0">
+              {/* Right: Booking Form */}
+              <div className="w-full lg:max-w-md lg:flex-shrink-0">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
                   {/* Card header */}
-                  <div className="bg-deep-navy px-6 py-5">
+                  <div className="bg-deep-navy px-5 sm:px-6 py-4 sm:py-5">
                     <div className="flex items-center gap-3 mb-1">
                       <span
-                        className="material-symbols-outlined text-primary-fixed text-2xl"
+                        className="material-symbols-outlined text-primary-fixed text-xl sm:text-2xl"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                       >
                         directions_car
                       </span>
-                      <h2 className="text-lg font-bold text-white">Book Your Journey</h2>
+                      <h2 className="text-base sm:text-lg font-bold text-white">Book Your Journey</h2>
                     </div>
-                    <p className="text-white/50 text-xs mb-4">Premium executive transport — instant confirmation</p>
-                    {/* One Way / Return toggle */}
+                    <p className="text-white/50 text-xs mb-3">Premium executive transport — instant confirmation</p>
                     <div className="flex rounded-lg overflow-hidden border border-white/15">
                       <button
                         onClick={() => setTripType("oneway")}
@@ -257,7 +250,7 @@ export default function Home() {
                       >
                         One Way
                       </button>
-                      <div className="w-px bg-white/15"></div>
+                      <div className="w-px bg-white/15" />
                       <button
                         onClick={() => setTripType("return")}
                         className={`flex-1 py-2 text-xs font-bold transition-colors ${
@@ -270,8 +263,8 @@ export default function Home() {
                   </div>
 
                   {/* Form body */}
-                  <div className="p-6">
-                    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                  <div className="p-4 sm:p-6">
+                    <form className="space-y-3 sm:space-y-4" onSubmit={(e) => e.preventDefault()}>
                       {/* Pickup */}
                       <div>
                         <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
@@ -282,7 +275,7 @@ export default function Home() {
                             my_location
                           </span>
                           <input
-                            className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
+                            className="w-full pl-10 pr-3 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
                             type="text"
                             placeholder="Enter pickup address or airport"
                           />
@@ -299,15 +292,15 @@ export default function Home() {
                             location_on
                           </span>
                           <input
-                            className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
+                            className="w-full pl-10 pr-3 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
                             type="text"
                             placeholder="Enter destination"
                           />
                         </div>
                       </div>
 
-                      {/* Date + Time side by side */}
-                      <div className="grid grid-cols-2 gap-3">
+                      {/* Date + Time */}
+                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
                         <div>
                           <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
                             Date
@@ -317,7 +310,7 @@ export default function Home() {
                               calendar_today
                             </span>
                             <input
-                              className="w-full pl-10 pr-2 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm"
+                              className="w-full pl-10 pr-1 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-xs sm:text-sm"
                               type="date"
                             />
                           </div>
@@ -331,7 +324,7 @@ export default function Home() {
                               schedule
                             </span>
                             <input
-                              className="w-full pl-10 pr-2 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm"
+                              className="w-full pl-10 pr-1 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-xs sm:text-sm"
                               type="time"
                             />
                           </div>
@@ -347,7 +340,7 @@ export default function Home() {
                           <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
                             group
                           </span>
-                          <select className="w-full pl-10 pr-8 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm appearance-none text-gray-700">
+                          <select className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm appearance-none text-gray-700">
                             <option value="">Select passengers</option>
                             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
                               <option key={n} value={n}>
@@ -361,10 +354,9 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* CTA */}
                       <Link
                         href="/contact"
-                        className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm hover:bg-primary-container transition-all active:scale-[0.99]"
+                        className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 sm:py-3.5 rounded-xl font-bold text-sm hover:bg-primary-container transition-all active:scale-[0.99]"
                       >
                         Get Instant Quote
                         <span className="material-symbols-outlined text-base">arrow_forward</span>
@@ -372,19 +364,19 @@ export default function Home() {
                     </form>
 
                     {/* Trust row */}
-                    <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <span className="material-symbols-outlined text-sm">lock</span>
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-1 text-gray-400 text-[10px] sm:text-xs">
+                        <span className="material-symbols-outlined text-xs sm:text-sm">lock</span>
                         Secure
                       </div>
-                      <div className="w-px h-3 bg-gray-200"></div>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <div className="w-px h-3 bg-gray-200" />
+                      <div className="flex items-center gap-1 text-gray-400 text-[10px] sm:text-xs">
+                        <span className="material-symbols-outlined text-xs sm:text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                         No Hidden Fees
                       </div>
-                      <div className="w-px h-3 bg-gray-200"></div>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <span className="material-symbols-outlined text-sm">support_agent</span>
+                      <div className="w-px h-3 bg-gray-200" />
+                      <div className="flex items-center gap-1 text-gray-400 text-[10px] sm:text-xs">
+                        <span className="material-symbols-outlined text-xs sm:text-sm">support_agent</span>
                         24/7 Support
                       </div>
                     </div>
@@ -403,51 +395,35 @@ export default function Home() {
         </section>
 
         {/* ===== 2. SERVICES STRIP ===== */}
-        <section className="py-14 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+        <section className="py-10 sm:py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-8 sm:mb-10">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Our Services</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy">
                 Exquisite Chauffeur &amp; Executive Services
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {[
-                {
-                  icon: "flight_takeoff",
-                  title: "Airport Transfers",
-                  desc: "Real-time flight tracking and meet-and-greet at all major London airports.",
-                },
-                {
-                  icon: "business_center",
-                  title: "Executive Travel",
-                  desc: "Premium corporate solutions for the discerning business traveller.",
-                },
-                {
-                  icon: "favorite",
-                  title: "Wedding Cars",
-                  desc: "Bespoke wedding car hire to make your special day unforgettable.",
-                },
-                {
-                  icon: "groups",
-                  title: "Special Events",
-                  desc: "Elegant transport for corporate events, galas, and private occasions.",
-                },
+                { icon: "flight_takeoff", title: "Airport Transfers", desc: "Real-time flight tracking and meet-and-greet at all major London airports." },
+                { icon: "business_center", title: "Executive Travel", desc: "Premium corporate solutions for the discerning business traveller." },
+                { icon: "favorite", title: "Wedding Cars", desc: "Bespoke wedding car hire to make your special day unforgettable." },
+                { icon: "groups", title: "Special Events", desc: "Elegant transport for corporate events, galas, and private occasions." },
               ].map((s) => (
                 <div
                   key={s.title}
-                  className="border border-gray-100 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-white"
+                  className="border border-gray-100 rounded-xl p-4 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-white"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 sm:mb-4">
                     <span
-                      className="material-symbols-outlined text-primary text-2xl"
+                      className="material-symbols-outlined text-primary text-xl sm:text-2xl"
                       style={{ fontVariationSettings: "'FILL' 1" }}
                     >
                       {s.icon}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-deep-navy mb-2">{s.title}</h3>
-                  <p className="text-sm text-on-surface-variant">{s.desc}</p>
+                  <h3 className="text-sm sm:text-base font-bold text-deep-navy mb-1 sm:mb-2">{s.title}</h3>
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -455,16 +431,16 @@ export default function Home() {
         </section>
 
         {/* ===== 3. ABOUT SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <section className="py-10 sm:py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-5 sm:space-y-6 order-2 lg:order-1">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">About Us</p>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy leading-tight">
                   Windsor Cars Ltd — Trusted Executive Chauffeur Service Since 1991
                 </h2>
-                <blockquote className="border-l-4 border-primary pl-5 text-on-surface-variant italic text-base sm:text-lg">
+                <blockquote className="border-l-4 border-primary pl-5 text-on-surface-variant italic text-sm sm:text-base lg:text-lg">
                   "We believe every journey should be a first-class experience — from the moment you book to the moment you arrive."
                 </blockquote>
                 <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">
@@ -474,21 +450,16 @@ export default function Home() {
                   comfort, punctuality, and discretion.
                 </p>
 
-                {/* Stats row — static */}
-                <div className="flex flex-wrap gap-0 pt-2">
+                {/* Stats row */}
+                <div className="grid grid-cols-3 divide-x divide-gray-200 pt-2">
                   {[
                     { value: "250+", label: "Premium Vehicles" },
                     { value: "30+", label: "Years of Excellence" },
                     { value: "3000+", label: "Weekly Transfers" },
-                  ].map((stat, i, arr) => (
-                    <div
-                      key={stat.label}
-                      className={`flex-1 min-w-[90px] text-center py-4 ${
-                        i < arr.length - 1 ? "border-r border-gray-200" : ""
-                      }`}
-                    >
-                      <div className="text-2xl sm:text-3xl font-bold text-deep-navy">{stat.value}</div>
-                      <div className="text-xs text-on-surface-variant mt-1">{stat.label}</div>
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center py-3 px-2">
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-deep-navy">{stat.value}</div>
+                      <div className="text-[10px] sm:text-xs text-on-surface-variant mt-1 leading-tight">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -501,17 +472,17 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Right: Image with CRB badge */}
-              <div className="relative w-full max-w-md lg:max-w-lg flex-shrink-0">
+              {/* Right: Image */}
+              <div className="relative w-full max-w-md lg:max-w-lg flex-shrink-0 order-1 lg:order-2">
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVApfdnJBL9WvgC1UFwVddW9HIR6sEY5XMol-8asv_H8ADbLZjoDjf2ngWlbVOTr7SYowSmnrQ5bBZnFeoNhgab60hx_jsfHZlWYuxQK3G78tjyi78fGCrA_LOvOAgff5M"
                   alt="Professional chauffeur"
-                  className="w-full h-80 sm:h-96 lg:h-[480px] object-cover rounded-2xl shadow-xl"
+                  className="w-full h-64 sm:h-80 lg:h-[480px] object-cover rounded-2xl shadow-xl"
                 />
-                <div className="absolute bottom-4 left-4 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <div className="absolute bottom-4 left-4 bg-white rounded-xl shadow-lg px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                     <span
-                      className="material-symbols-outlined text-white text-lg"
+                      className="material-symbols-outlined text-white text-base sm:text-lg"
                       style={{ fontVariationSettings: "'FILL' 1" }}
                     >
                       verified_user
@@ -528,20 +499,20 @@ export default function Home() {
         </section>
 
         {/* ===== 4. FEATURES SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-surface-grey">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 sm:py-16 lg:py-20 bg-surface-grey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left: car image */}
               <div className="w-full lg:w-1/2 flex-shrink-0">
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAanAwKfWPHFVUGlEcyFbjh-KDetavQm5PaDF6-3IXy7ope6xzNFZJ6uSq62hsoCo9YB_o21UTWn3Tfrr7SrCJw0LoVSCvvP2vXTs2M0PLTEjf2pT37MENlcNLNATSbK4_s2cT7QbZgdUYQJ13EiDJRvZcXgyXgE6RN0p3ymwS3LoxX7D9pAnH9RowwKHp3tSpzvfyfYPjyFLJPBCqP69WW84h8omLb5_Ajd8_8P0yoYzkGauspqPBiHgfVRR6PB1dvZYzQ8OETs2yj"
                   alt="Executive car"
-                  className="w-full h-80 lg:h-[520px] object-cover rounded-2xl shadow-lg"
+                  className="w-full h-64 sm:h-80 lg:h-[520px] object-cover rounded-2xl shadow-lg"
                 />
               </div>
 
               {/* Right: features */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-5 sm:space-y-6">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">Why Choose Us</p>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy leading-tight">
                   Unmatched Comfort, Exceptional Service
@@ -551,33 +522,17 @@ export default function Home() {
                   professionalism, and genuine care.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {[
-                    {
-                      icon: "verified_user",
-                      title: "Professional Chauffeurs",
-                      desc: "CRB-checked, smartly presented, and extensively trained for every occasion.",
-                    },
-                    {
-                      icon: "directions_car",
-                      title: "Premium Fleet",
-                      desc: "250+ meticulously maintained luxury vehicles ready for your journey.",
-                    },
-                    {
-                      icon: "sell",
-                      title: "Fixed Transparent Pricing",
-                      desc: "No hidden costs, no midnight surcharges — just honest, competitive fares.",
-                    },
-                    {
-                      icon: "support_agent",
-                      title: "Advanced Booking & 24/7 Support",
-                      desc: "Book days ahead or last minute. Our team is always on hand to assist.",
-                    },
+                    { icon: "verified_user", title: "Professional Chauffeurs", desc: "CRB-checked, smartly presented, and extensively trained for every occasion." },
+                    { icon: "directions_car", title: "Premium Fleet", desc: "250+ meticulously maintained luxury vehicles ready for your journey." },
+                    { icon: "sell", title: "Fixed Transparent Pricing", desc: "No hidden costs, no midnight surcharges — just honest, competitive fares." },
+                    { icon: "support_agent", title: "Advanced Booking & 24/7 Support", desc: "Book days ahead or last minute. Our team is always on hand to assist." },
                   ].map((f) => (
-                    <div key={f.title} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div key={f.title} className="flex items-start gap-3 sm:gap-4">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <span
-                          className="material-symbols-outlined text-primary text-lg"
+                          className="material-symbols-outlined text-primary text-base sm:text-lg"
                           style={{ fontVariationSettings: "'FILL' 1" }}
                         >
                           {f.icon}
@@ -603,24 +558,24 @@ export default function Home() {
         </section>
 
         {/* ===== 5. SERVICES GRID (dark) ===== */}
-        <section className="py-14 sm:py-20 bg-deep-navy">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+        <section className="py-10 sm:py-16 lg:py-20 bg-deep-navy">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-8 sm:mb-10">
               <p className="text-xs font-bold uppercase tracking-widest text-primary-fixed mb-2">What We Offer</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Explore Our Chauffeur Services</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {serviceGridCards.map((card) => (
-                <div key={card.name} className="relative group h-72 rounded-xl overflow-hidden">
+                <div key={card.name} className="relative group h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden">
                   <img
                     src={card.img}
                     alt={card.name}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-white font-bold text-base mb-1">{card.name}</h3>
-                    <p className="text-white/70 text-xs mb-3 leading-relaxed">{card.desc}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-1">{card.name}</h3>
+                    <p className="text-white/70 text-xs mb-3 leading-relaxed line-clamp-2">{card.desc}</p>
                     <Link
                       href="/contact"
                       className="inline-block bg-primary text-white text-xs font-semibold px-4 py-2 rounded-lg hover:brightness-110 transition-all"
@@ -635,41 +590,34 @@ export default function Home() {
         </section>
 
         {/* ===== 6. LOCATIONS SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-surface-grey">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 sm:py-16 lg:py-20 bg-surface-grey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
               {/* Left */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-5 sm:space-y-6">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">Coverage</p>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy leading-tight">
                   Chauffeur Services Across Key Locations
                 </h2>
 
-                <div className="flex flex-col sm:flex-row gap-8">
-                  <div className="flex-1">
+                <div className="grid grid-cols-2 gap-6 sm:gap-8">
+                  <div>
                     <h4 className="font-bold text-deep-navy text-sm mb-3">Airport Transfers</h4>
                     <ul className="space-y-2">
                       {["Heathrow", "Gatwick", "Stansted", "Luton", "London City", "Birmingham"].map((loc) => (
-                        <li key={loc} className="flex items-center gap-2 text-sm text-on-surface-variant">
-                          <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+                        <li key={loc} className="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant">
+                          <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                           {loc}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="flex-1">
+                  <div>
                     <h4 className="font-bold text-deep-navy text-sm mb-3">City Transfers</h4>
                     <ul className="space-y-2">
-                      {[
-                        "Windsor & Datchet",
-                        "Slough & Eton",
-                        "London All Areas",
-                        "Oxford",
-                        "Reading",
-                        "Manchester & Beyond",
-                      ].map((loc) => (
-                        <li key={loc} className="flex items-center gap-2 text-sm text-on-surface-variant">
-                          <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+                      {["Windsor & Datchet", "Slough & Eton", "London All Areas", "Oxford", "Reading", "Manchester & Beyond"].map((loc) => (
+                        <li key={loc} className="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant">
+                          <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                           {loc}
                         </li>
                       ))}
@@ -690,7 +638,7 @@ export default function Home() {
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWf7mlGTRMxZurqwcPxCwasSPLBbXOuoR7h9zZH2VOL9QO07RiGMWSJpZw-WXZnSD01ofq9qeblAMtLqSi2cB-PJtPgqY8e91RNZZoW13CtgJR8u_Paxkcp1VlDtaPbjUjfuL70BPvw58Zl6pihDPhXzprPErjnN--0u-nf-pQi9Ma-RTcWUWxCiuX6Dl2tE9lyGoOtGmFaFXWBC0r_dA7I4vexjeZIv1OfGNbVGCqUntyfez6osYYbTUd9Q-9ZjwEYiLPSMGWvJQn"
                   alt="Service coverage map"
-                  className="w-full h-72 sm:h-80 lg:h-[400px] object-cover rounded-2xl shadow-lg"
+                  className="w-full h-64 sm:h-80 lg:h-[400px] object-cover rounded-2xl shadow-lg"
                 />
               </div>
             </div>
@@ -698,7 +646,7 @@ export default function Home() {
         </section>
 
         {/* ===== 7. STEP INTO ELEGANCE CTA ===== */}
-        <section className="relative py-20 sm:py-28 bg-[#0d0b22] overflow-hidden text-center">
+        <section className="relative py-16 sm:py-24 bg-[#0d0b22] overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxSB0j6wsGemYcP9BNG3xIYQtf_Y_2ESTxUSiqcAw-CuBD8HplaeQ-n0NwcE784P6kHtXeSSQoTzir_s8U5qZ4DLcC89p4dHUG6AzmaCMhqPg4cfOveqRIIMO6BJqrPTuZ39UHkOlx6qSw4b-BObACBtY5nqM5IqyWgyfyYlAGmGgMfvMZGvDtfIxZ4LwvyIOYL-_TOx4ubFxbX9fTUsXldI8G6UYLQmUt-V51vpRrmkZ_qQAaLUQNxN2r7dH_KGP-pBTo8yeVX4i"
@@ -706,16 +654,15 @@ export default function Home() {
               className="w-full h-full object-cover opacity-20"
             />
           </div>
-          <div className="relative z-10 max-w-2xl mx-auto px-4 space-y-6">
+          <div className="relative z-10 max-w-2xl mx-auto px-4 space-y-5">
             <p className="text-xs font-bold uppercase tracking-widest text-primary-fixed">Experience Windsor</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Step Into Elegance</h2>
-            <p className="text-base text-white/70 max-w-lg mx-auto">
-              Every journey with Windsor Cars is a statement of style, comfort and professionalism. Let us exceed your
-              expectations.
+            <p className="text-sm sm:text-base text-white/70 max-w-lg mx-auto">
+              Every journey with Windsor Cars is a statement of style, comfort and professionalism. Let us exceed your expectations.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-primary text-white px-8 py-3.5 rounded-lg font-bold hover:brightness-110 transition-all"
+              className="inline-block bg-primary text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold hover:brightness-110 transition-all text-sm sm:text-base"
             >
               Book Your Journey
             </Link>
@@ -723,31 +670,31 @@ export default function Home() {
         </section>
 
         {/* ===== 8. FLEET SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+        <section className="py-10 sm:py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-8 sm:mb-10">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Our Vehicles</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy">
                 Travel In Comfort With Our Luxury Fleet
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {fleetCars.map((car) => (
                 <div
                   key={car.name}
                   className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
-                  <div className="h-48 overflow-hidden">
+                  <div className="h-44 sm:h-48 overflow-hidden">
                     <img
                       src={car.img}
                       alt={car.name}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <div className="flex items-center justify-between mb-3 gap-2">
-                      <h3 className="font-bold text-deep-navy text-base">{car.name}</h3>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary">
+                      <h3 className="font-bold text-deep-navy text-sm sm:text-base">{car.name}</h3>
+                      <span className="text-xs font-semibold px-2 sm:px-3 py-1 rounded-full bg-primary/10 text-primary whitespace-nowrap">
                         {car.badge}
                       </span>
                     </div>
@@ -773,21 +720,21 @@ export default function Home() {
         </section>
 
         {/* ===== 9. REVIEWS SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-surface-grey">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+        <section className="py-10 sm:py-16 lg:py-20 bg-surface-grey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-8 sm:mb-10">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Testimonials</p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy">Our Reviews</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {reviews.map((r, i) => (
-                <div key={i} className="bg-white rounded-xl shadow-md p-6 flex flex-col gap-4">
+                <div key={i} className="bg-white rounded-xl shadow-md p-5 sm:p-6 flex flex-col gap-3 sm:gap-4">
                   <div className="flex items-center gap-2">
                     <div className="flex text-yellow-400">
                       {[...Array(5)].map((_, s) => (
                         <span
                           key={s}
-                          className="material-symbols-outlined text-lg"
+                          className="material-symbols-outlined text-base sm:text-lg"
                           style={{ fontVariationSettings: "'FILL' 1" }}
                         >
                           star
@@ -798,7 +745,7 @@ export default function Home() {
                   </div>
                   <p className="text-sm text-on-surface-variant italic flex-1">"{r.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs sm:text-sm flex-shrink-0">
                       {r.initials}
                     </div>
                     <div>
@@ -813,13 +760,13 @@ export default function Home() {
         </section>
 
         {/* ===== 10. FAQ SECTION ===== */}
-        <section className="py-14 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+        <section className="py-10 sm:py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
               {/* Left: accordion */}
-              <div className="flex-1">
+              <div className="flex-1 order-2 lg:order-1">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">FAQ</p>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy mb-8">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-deep-navy mb-6 sm:mb-8">
                   Your Questions, Answered
                 </h2>
                 <div className="space-y-3">
@@ -848,49 +795,30 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right: feature cards */}
-              <div className="lg:w-80 flex-shrink-0 space-y-4">
-                <div className="bg-primary text-white rounded-xl p-6">
-                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-4">
-                    <span
-                      className="material-symbols-outlined text-white"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      support_agent
-                    </span>
+              {/* Right: feature cards — shown at top on mobile */}
+              <div className="lg:w-72 xl:w-80 flex-shrink-0 order-1 lg:order-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+                  <div className="bg-primary text-white rounded-xl p-5 sm:p-6">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center mb-3 sm:mb-4">
+                      <span className="material-symbols-outlined text-white text-base sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>support_agent</span>
+                    </div>
+                    <h4 className="font-bold text-sm sm:text-base mb-1">24/7 Support</h4>
+                    <p className="text-xs sm:text-sm text-white/80">Our team is available around the clock for bookings, changes, and assistance.</p>
                   </div>
-                  <h4 className="font-bold text-base mb-1">24/7 Support</h4>
-                  <p className="text-sm text-white/80">
-                    Our team is available around the clock for bookings, changes, and assistance.
-                  </p>
-                </div>
-                <div className="bg-surface-grey rounded-xl p-6">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <span
-                      className="material-symbols-outlined text-primary"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      location_on
-                    </span>
+                  <div className="bg-surface-grey rounded-xl p-5 sm:p-6">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3 sm:mb-4">
+                      <span className="material-symbols-outlined text-primary text-base sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+                    </div>
+                    <h4 className="font-bold text-deep-navy text-sm sm:text-base mb-1">Easy Nearby Pickups</h4>
+                    <p className="text-xs sm:text-sm text-on-surface-variant">We come to you — at home, office, hotel, or any location you specify.</p>
                   </div>
-                  <h4 className="font-bold text-deep-navy text-base mb-1">Easy Nearby Pickups</h4>
-                  <p className="text-sm text-on-surface-variant">
-                    We come to you — at home, office, hotel, or any location you specify.
-                  </p>
-                </div>
-                <div className="bg-surface-grey rounded-xl p-6">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <span
-                      className="material-symbols-outlined text-primary"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      groups
-                    </span>
+                  <div className="bg-surface-grey rounded-xl p-5 sm:p-6">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3 sm:mb-4">
+                      <span className="material-symbols-outlined text-primary text-base sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>groups</span>
+                    </div>
+                    <h4 className="font-bold text-deep-navy text-sm sm:text-base mb-1">Quality Large Group Pickups</h4>
+                    <p className="text-xs sm:text-sm text-on-surface-variant">Vehicles for up to 8 passengers with ample luggage space for group travel.</p>
                   </div>
-                  <h4 className="font-bold text-deep-navy text-base mb-1">Quality Large Group Pickups</h4>
-                  <p className="text-sm text-on-surface-variant">
-                    Vehicles for up to 8 passengers with ample luggage space for group travel.
-                  </p>
                 </div>
               </div>
             </div>
@@ -898,7 +826,7 @@ export default function Home() {
         </section>
 
         {/* ===== 11. FOOTER CTA ===== */}
-        <section className="relative py-20 sm:py-28 bg-deep-navy overflow-hidden text-center">
+        <section className="relative py-16 sm:py-24 bg-deep-navy overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxSB0j6wsGemYcP9BNG3xIYQtf_Y_2ESTxUSiqcAw-CuBD8HplaeQ-n0NwcE784P6kHtXeSSQoTzir_s8U5qZ4DLcC89p4dHUG6AzmaCMhqPg4cfOveqRIIMO6BJqrPTuZ39UHkOlx6qSw4b-BObACBtY5nqM5IqyWgyfyYlAGmGgMfvMZGvDtfIxZ4LwvyIOYL-_TOx4ubFxbX9fTUsXldI8G6UYLQmUt-V51vpRrmkZ_qQAaLUQNxN2r7dH_KGP-pBTo8yeVX4i"
@@ -906,22 +834,21 @@ export default function Home() {
               className="w-full h-full object-cover opacity-10"
             />
           </div>
-          <div className="relative z-10 max-w-3xl mx-auto px-4 space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Choose Excellence, Ride In Luxury</h2>
-            <p className="text-base text-white/70 max-w-xl mx-auto">
-              Whether it's an airport run, a corporate event, or a special occasion — Windsor Cars Ltd delivers an
-              exceptional experience every time.
+          <div className="relative z-10 max-w-3xl mx-auto px-4 space-y-5">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">Choose Excellence, Ride In Luxury</h2>
+            <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto">
+              Whether it's an airport run, a corporate event, or a special occasion — Windsor Cars Ltd delivers an exceptional experience every time.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-block bg-primary text-white px-8 py-3.5 rounded-lg font-bold hover:brightness-110 transition-all"
+                className="inline-block bg-primary text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold hover:brightness-110 transition-all text-sm sm:text-base"
               >
                 Book Now
               </Link>
               <a
                 href="tel:01753677677"
-                className="inline-block border-2 border-white text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white/10 transition-all"
+                className="inline-block border-2 border-white text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-lg font-bold hover:bg-white/10 transition-all text-sm sm:text-base"
               >
                 01753 677 677
               </a>
