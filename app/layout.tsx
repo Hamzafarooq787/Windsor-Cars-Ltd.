@@ -26,6 +26,27 @@ export const metadata: Metadata = {
     shortcut: "/Windsor Cars Site-Icon.webp",
     apple: "/Windsor Cars Site-Icon.webp",
   },
+  openGraph: {
+    title: "Windsor Cars Ltd. | Luxury Executive Travel & Airport Transfers",
+    description:
+      "Founded 1991. Over 250 cars and 3,000+ weekly airport transfers. 24/7 service with no extra charges after midnight.",
+    images: [
+      {
+        url: "/Windsor Cars Open Graph.webp",
+        width: 1200,
+        height: 630,
+        alt: "Windsor Cars Ltd. – Luxury Executive Chauffeur Service",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Windsor Cars Ltd. | Luxury Executive Travel & Airport Transfers",
+    description:
+      "Founded 1991. Over 250 cars and 3,000+ weekly airport transfers. 24/7 service with no extra charges after midnight.",
+    images: ["/Windsor Cars Open Graph.webp"],
+  },
 };
 
 export default function RootLayout({
