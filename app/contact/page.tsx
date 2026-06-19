@@ -52,7 +52,7 @@ export default function ContactPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/90 via-deep-navy/70 to-deep-navy/50"></div>
           </div>
-          <div className="relative z-10 text-center px-4 sm:px-6 pt-16 sm:pt-20">
+          <div className="relative z-10 text-center px-4 sm:px-6 pt-16 sm:pt-20 md:pt-28">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
               Get in Touch
             </h1>
