@@ -38,7 +38,7 @@ export default function Header() {
       <nav className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto py-4 sm:py-5">
         <Link href="/" className="flex items-center flex-shrink-0">
           <img
-            src="/Windsor Cars ltd logo.webp"
+            src="/Windsor Cars ltd footer logo.webp"
             alt="Windsor Cars Ltd."
             className="h-12 sm:h-14 w-auto object-contain"
             style={{ aspectRatio: "auto" }}
