@@ -33,7 +33,7 @@
   --color-charcoal-text: #262c39;
   --color-inverse-primary: #aec6ff;
   --color-outline-variant: #c3c6d3;
-  --color-deep-navy: #0a1f44;
+  --color-deep-navy: #1a1650;
   --color-surface-container-low: #f3f3f3;
   --color-surface-dim: #dadada;
   --color-on-primary-fixed: #001a42;
@@ -138,10 +138,10 @@
 /* Custom utilities */
 @layer utilities {
   .shadow-level-1 {
-    box-shadow: 0px 4px 12px rgba(10, 31, 68, 0.05);
+    box-shadow: 0px 4px 12px rgba(26, 22, 80, 0.05);
   }
   .shadow-level-2 {
-    box-shadow: 0px 8px 24px rgba(10, 31, 68, 0.10);
+    box-shadow: 0px 8px 24px rgba(26, 22, 80, 0.10);
   }
 }
 
@@ -151,14 +151,14 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.shadow-level-1 { box-shadow: 0px 4px 12px rgba(10, 31, 68, 0.05); }
-.shadow-level-2 { box-shadow: 0px 8px 24px rgba(10, 31, 68, 0.10); }
+.shadow-level-1 { box-shadow: 0px 4px 12px rgba(26, 22, 80, 0.05); }
+.shadow-level-2 { box-shadow: 0px 8px 24px rgba(26, 22, 80, 0.10); }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Luxury gradient for hero overlay */
 .luxury-gradient {
-  background: linear-gradient(180deg, rgba(10, 31, 68, 0.8) 0%, rgba(10, 31, 68, 0.4) 100%);
+  background: linear-gradient(180deg, rgba(26, 22, 80, 0.8) 0%, rgba(26, 22, 80, 0.4) 100%);
 }
 
 /* Scroll reveal animation */
@@ -181,14 +181,14 @@
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-.luxury-shadow-sm { box-shadow: 0px 4px 12px rgba(10, 31, 68, 0.05); }
-.luxury-shadow-lg { box-shadow: 0px 8px 24px rgba(10, 31, 68, 0.10); }
+.luxury-shadow-sm { box-shadow: 0px 4px 12px rgba(26, 22, 80, 0.05); }
+.luxury-shadow-lg { box-shadow: 0px 8px 24px rgba(26, 22, 80, 0.10); }
 body { background-color: #f9f9f9; font-family: var(--font-manrope), sans-serif; }
 
 
 .service-card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 8px 24px rgba(10, 31, 68, 0.10);
+  box-shadow: 0px 8px 24px rgba(26, 22, 80, 0.10);
 }
 
 .glass-overlay {
@@ -197,10 +197,10 @@ body { background-color: #f9f9f9; font-family: var(--font-manrope), sans-serif; 
 }
 
 .fleet-card-shadow {
-  box-shadow: 0px 4px 12px rgba(10, 31, 68, 0.05);
+  box-shadow: 0px 4px 12px rgba(26, 22, 80, 0.05);
 }
 .fleet-card-shadow:hover {
-  box-shadow: 0px 8px 24px rgba(10, 31, 68, 0.10);
+  box-shadow: 0px 8px 24px rgba(26, 22, 80, 0.10);
 }
 
 .material-symbols-outlined {
