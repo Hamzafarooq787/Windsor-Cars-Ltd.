@@ -232,141 +232,168 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right: Booking form */}
-              <div className="w-full max-w-sm bg-white rounded-2xl p-6 shadow-2xl text-gray-800 flex-shrink-0">
-                <h2 className="text-xl font-bold text-deep-navy mb-4">Book Your Journey</h2>
+              {/* Right: Professional Booking Form */}
+              <div className="w-full max-w-md flex-shrink-0">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+                  {/* Card header */}
+                  <div className="bg-deep-navy px-6 py-5">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span
+                        className="material-symbols-outlined text-primary-fixed text-2xl"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        directions_car
+                      </span>
+                      <h2 className="text-lg font-bold text-white">Book Your Journey</h2>
+                    </div>
+                    <p className="text-white/50 text-xs mb-4">Premium executive transport — instant confirmation</p>
+                    {/* One Way / Return toggle */}
+                    <div className="flex rounded-lg overflow-hidden border border-white/15">
+                      <button
+                        onClick={() => setTripType("oneway")}
+                        className={`flex-1 py-2 text-xs font-bold transition-colors ${
+                          tripType === "oneway" ? "bg-primary text-white" : "text-white/60 hover:text-white"
+                        }`}
+                      >
+                        One Way
+                      </button>
+                      <div className="w-px bg-white/15"></div>
+                      <button
+                        onClick={() => setTripType("return")}
+                        className={`flex-1 py-2 text-xs font-bold transition-colors ${
+                          tripType === "return" ? "bg-primary text-white" : "text-white/60 hover:text-white"
+                        }`}
+                      >
+                        Return
+                      </button>
+                    </div>
+                  </div>
 
-                {/* One Way / Return toggle */}
-                <div className="flex rounded-lg border border-gray-200 overflow-hidden mb-4">
-                  <button
-                    onClick={() => setTripType("oneway")}
-                    className={`flex-1 py-2 text-sm font-semibold transition-colors ${
-                      tripType === "oneway"
-                        ? "bg-primary text-white"
-                        : "bg-gray-50 text-gray-600 hover:bg-gray-100"
-                    }`}
-                  >
-                    One Way
-                  </button>
-                  <button
-                    onClick={() => setTripType("return")}
-                    className={`flex-1 py-2 text-sm font-semibold transition-colors ${
-                      tripType === "return"
-                        ? "bg-primary text-white"
-                        : "bg-gray-50 text-gray-600 hover:bg-gray-100"
-                    }`}
-                  >
-                    Return
-                  </button>
+                  {/* Form body */}
+                  <div className="p-6">
+                    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                      {/* Pickup */}
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
+                          Pickup Location
+                        </label>
+                        <div className="relative">
+                          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-lg">
+                            my_location
+                          </span>
+                          <input
+                            className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
+                            type="text"
+                            placeholder="Enter pickup address or airport"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Dropoff */}
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
+                          Drop-off Location
+                        </label>
+                        <div className="relative">
+                          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                            location_on
+                          </span>
+                          <input
+                            className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm placeholder:text-gray-400"
+                            type="text"
+                            placeholder="Enter destination"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Date + Time side by side */}
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
+                            Date
+                          </label>
+                          <div className="relative">
+                            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                              calendar_today
+                            </span>
+                            <input
+                              className="w-full pl-10 pr-2 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm"
+                              type="date"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
+                            Time
+                          </label>
+                          <div className="relative">
+                            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                              schedule
+                            </span>
+                            <input
+                              className="w-full pl-10 pr-2 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm"
+                              type="time"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Passengers */}
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">
+                          Passengers
+                        </label>
+                        <div className="relative">
+                          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                            group
+                          </span>
+                          <select className="w-full pl-10 pr-8 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white outline-none transition-all text-sm appearance-none text-gray-700">
+                            <option value="">Select passengers</option>
+                            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                              <option key={n} value={n}>
+                                {n} Passenger{n > 1 ? "s" : ""}
+                              </option>
+                            ))}
+                          </select>
+                          <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg pointer-events-none">
+                            expand_more
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <Link
+                        href="/contact"
+                        className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm hover:bg-primary-container transition-all active:scale-[0.99]"
+                      >
+                        Get Instant Quote
+                        <span className="material-symbols-outlined text-base">arrow_forward</span>
+                      </Link>
+                    </form>
+
+                    {/* Trust row */}
+                    <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-1 text-gray-400 text-xs">
+                        <span className="material-symbols-outlined text-sm">lock</span>
+                        Secure
+                      </div>
+                      <div className="w-px h-3 bg-gray-200"></div>
+                      <div className="flex items-center gap-1 text-gray-400 text-xs">
+                        <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                        No Hidden Fees
+                      </div>
+                      <div className="w-px h-3 bg-gray-200"></div>
+                      <div className="flex items-center gap-1 text-gray-400 text-xs">
+                        <span className="material-symbols-outlined text-sm">support_agent</span>
+                        24/7 Support
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-                  <div>
-                    <label className="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">
-                      Pickup Location
-                    </label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
-                        location_on
-                      </span>
-                      <input
-                        className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm"
-                        type="text"
-                        placeholder="Enter pickup address"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">
-                      Drop-off Location
-                    </label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
-                        location_on
-                      </span>
-                      <input
-                        className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm"
-                        type="text"
-                        placeholder="Enter destination"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">
-                      Date
-                    </label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
-                        calendar_today
-                      </span>
-                      <input
-                        className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-sm"
-                        type="date"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">
-                      Time
-                    </label>
-                    <div className="flex gap-2">
-                      <select
-                        className="flex-1 py-2.5 px-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"
-                        defaultValue="HH"
-                      >
-                        <option disabled value="HH">
-                          HH
-                        </option>
-                        {[...Array(24)].map((_, i) => (
-                          <option key={i}>{i.toString().padStart(2, "0")}</option>
-                        ))}
-                      </select>
-                      <select
-                        className="flex-1 py-2.5 px-3 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm"
-                        defaultValue="MM"
-                      >
-                        <option disabled value="MM">
-                          MM
-                        </option>
-                        {["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"].map((m) => (
-                          <option key={m}>{m}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">
-                      Passengers
-                    </label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
-                        group
-                      </span>
-                      <select className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm appearance-none">
-                        {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                          <option key={n}>
-                            {n} Passenger{n > 1 ? "s" : ""}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="block w-full bg-primary text-white text-center py-3 rounded-lg font-bold hover:brightness-110 active:scale-[0.99] transition-all text-sm mt-1"
-                  >
-                    Get Instant Quote
-                  </Link>
-                </form>
-
-                <p className="text-center text-xs text-gray-500 mt-3">
-                  Or call us:{" "}
-                  <a href="tel:01753677677" className="text-primary font-semibold hover:underline">
+                <p className="text-center text-white/50 text-xs mt-3">
+                  Prefer to call?{" "}
+                  <a href="tel:+441753677677" className="text-white font-semibold hover:underline">
                     01753 677 677
                   </a>
                 </p>
