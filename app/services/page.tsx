@@ -4,253 +4,406 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+const services = [
+  {
+    icon: "flight_takeoff",
+    title: "Airport Transfers",
+    subtitle: "Heathrow · Gatwick · Stansted · Luton · City Airport",
+    description:
+      "Punctual, stress-free airport transfers to and from all major London airports. We track your flight in real time so your chauffeur is ready the moment you land.",
+    features: [
+      "Flight monitoring & free waiting time",
+      "Meet & greet with name board",
+      "All terminals covered 24/7",
+      "Fixed pricing — no surge charges",
+    ],
+    accent: "bg-primary",
+  },
+  {
+    icon: "business_center",
+    title: "Executive Business Travel",
+    subtitle: "Corporate Accounts · Point-to-Point",
+    description:
+      "Arrive composed and on time for every meeting. Our discreet, professionally trained chauffeurs provide a mobile office environment with Wi-Fi and phone charging.",
+    features: [
+      "Dedicated corporate account managers",
+      "Monthly invoicing available",
+      "Confidential, distraction-free travel",
+      "Meet at reception or kerbside",
+    ],
+    accent: "bg-primary-container",
+  },
+  {
+    icon: "favorite",
+    title: "Wedding Cars",
+    subtitle: "Bridal Party · Guests · Getaway",
+    description:
+      "Make your wedding day truly unforgettable. Our pristine fleet, decorated to your wishes, ensures the bride, groom, and guests arrive in style and comfort.",
+    features: [
+      "Ribbon & floral decoration available",
+      "Fully coordinated bridal party transfers",
+      "Punctual arrival guaranteed",
+      "Photography-friendly presentation",
+    ],
+    accent: "bg-tertiary-container",
+  },
+  {
+    icon: "celebration",
+    title: "Special Occasions",
+    subtitle: "Proms · Anniversaries · Birthdays · Nights Out",
+    description:
+      "Celebrate life's milestones in luxury. Whether it's a prom night, anniversary dinner, or birthday treat, we make every special moment extraordinary.",
+    features: [
+      "Prom packages for school leavers",
+      "Champagne greeting on request",
+      "Flexible collection & drop-off times",
+      "Child seats available",
+    ],
+    accent: "bg-secondary",
+  },
+  {
+    icon: "location_city",
+    title: "London City Travel",
+    subtitle: "City · Canary Wharf · West End · Mayfair",
+    description:
+      "Navigate the capital effortlessly. From financial district meetings to West End theatre, our drivers know every shortcut to keep you on schedule.",
+    features: [
+      "Real-time traffic routing",
+      "Late-night & early-morning available",
+      "Wait-and-return options",
+      "Concierge-style service",
+    ],
+    accent: "bg-primary",
+  },
+  {
+    icon: "groups",
+    title: "Corporate Events & Conferences",
+    subtitle: "Roadshows · Group Transport · VIP Logistics",
+    description:
+      "Seamless group transport for conferences, roadshows, and corporate events. We coordinate multiple vehicles and drivers so your delegates travel together in comfort.",
+    features: [
+      "Multi-vehicle fleet management",
+      "Meet-and-greet at venues",
+      "Custom itinerary planning",
+      "Dedicated event coordinator",
+    ],
+    accent: "bg-primary-container",
+  },
+  {
+    icon: "directions_car",
+    title: "UK-Wide Long Distance",
+    subtitle: "Inter-City · Scotland · Wales · Beyond",
+    description:
+      "Redefine long-distance travel. Our executive vehicles make every mile comfortable, letting you work, rest, or simply enjoy the journey across the UK.",
+    features: [
+      "Comfort stops planned en route",
+      "No mileage limits",
+      "Overnight and multi-day bookings",
+      "Fixed quote — no surprises",
+    ],
+    accent: "bg-tertiary-container",
+  },
+  {
+    icon: "anchor",
+    title: "Cruise Port Transfers",
+    subtitle: "Southampton · Dover · Tilbury",
+    description:
+      "Start and end your cruise holiday in style. We deliver you to the terminal on time with all your luggage handled, and collect you when you return.",
+    features: [
+      "All major UK cruise terminals",
+      "Large estate vehicles for luggage",
+      "Ship departure time guaranteed",
+      "Return transfers coordinated",
+    ],
+    accent: "bg-secondary",
+  },
+  {
+    icon: "explore",
+    title: "Tourist Day Service",
+    subtitle: "Windsor Castle · Stonehenge · Cotswolds · Oxford",
+    description:
+      "Discover Britain's finest attractions at your own pace with a private chauffeur. We design bespoke sightseeing itineraries tailored entirely to your interests.",
+    features: [
+      "Fully customisable day itineraries",
+      "Knowledgeable local drivers",
+      "Multi-stop tours available",
+      "Hotel pick-up & drop-off",
+    ],
+    accent: "bg-primary",
+  },
+  {
+    icon: "home_pin",
+    title: "Local & School Runs",
+    subtitle: "Windsor · Slough · Berkshire · Surrounding Areas",
+    description:
+      "Reliable everyday transport for the school run, medical appointments, or local errands. Our professional drivers bring executive comfort to daily life.",
+    features: [
+      "Regular schedule bookings",
+      "CRB-checked, vetted drivers",
+      "Child seat provision",
+      "Track via real-time updates",
+    ],
+    accent: "bg-primary-container",
+  },
+];
+
+const steps = [
+  { number: "01", icon: "edit_note", title: "Tell Us Your Journey", body: "Enter your pickup, destination, date, and vehicle preference via our booking form or phone." },
+  { number: "02", icon: "confirmation_number", title: "Instant Confirmation", body: "Receive your booking confirmation immediately by email with full journey details and driver info." },
+  { number: "03", icon: "hail", title: "Meet Your Chauffeur", body: "Your uniformed chauffeur arrives on time — or greets you in arrivals with a personalised name board." },
+  { number: "04", icon: "star", title: "Travel in Comfort", body: "Relax in a premium vehicle and arrive refreshed, on time, and ready for whatever awaits." },
+];
+
+const pillars = [
+  { icon: "verified_user", title: "CRB-Checked Drivers", body: "Every chauffeur is fully licensed, DBS-checked, and professionally trained for executive service." },
+  { icon: "schedule", title: "Always On Time", body: "We monitor traffic, flights, and routes live — your punctuality is our priority, every single trip." },
+  { icon: "attach_money", title: "Fixed, Transparent Fares", body: "No hidden fees, no surge pricing, no nasty surprises. The price you see is the price you pay." },
+  { icon: "support_agent", title: "24/7 Support", body: "Our team is available around the clock by phone or email to assist with any booking or query." },
+];
+
 export default function ServicesPage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section – Matches About/Fleet style */}
-        <section className="relative h-[500px] sm:h-[580px] lg:h-[614px] flex items-center overflow-hidden">
+        {/* ── Hero ── */}
+        <section className="relative h-[520px] sm:h-[600px] lg:h-[660px] flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLR0zJLm7kDq0Rj7PYkxi_rCe1JGK3_AtYqM8jEjOa_PeG5m63bHLesbukyN6f8E71_YJmEwFaWmBbZcnKTMgsrfSAZ94WN2Ajnacg5MCd3Xv0q_biwgzWjMt9xUPmg3tYfgFpafFsIUXxnj55ZUApXEwuWpfAbYV6SbgVhJhgPY2ylbkVj-P7b70uTnuFInnyutyX5wI5MRjAWaqQliyy65wjsro7qZcr5m5AQH6JBciqQjswK_RW4cgYZIwqcxihkPuZPCPvvLgc"
-              alt="Luxury executive car service"
+              alt="Luxury chauffeur service"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/90 via-deep-navy/70 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/95 via-deep-navy/75 to-deep-navy/30" />
           </div>
 
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24">
             <div className="max-w-2xl text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
-                Our Premium Services
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-white/50 mb-4 border border-white/20 px-3 py-1 rounded-full">
+                Premium Chauffeur Services
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-5">
+                Every Journey,<br />
+                <span className="text-white/70">Delivered in Luxury</span>
               </h1>
-              <p className="text-base sm:text-lg opacity-90 mb-6 sm:mb-8 leading-relaxed max-w-xl">
-                At Windsor Cars Ltd., we provide an unparalleled executive chauffeur experience.
-                From seamless airport transfers to bespoke city tours, our fleet and professional
-                drivers represent the gold standard in luxury transportation.
+              <p className="text-base sm:text-lg text-white/75 mb-8 leading-relaxed max-w-xl">
+                From airport transfers to UK-wide corporate travel, Windsor Cars has provided premium
+                chauffeur services since 1991. Explore our full range of tailored transport solutions.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">
-                  <span className="material-symbols-outlined text-[18px]">verified_user</span>
-                  Professional Chauffeurs
-                </span>
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">
-                  <span className="material-symbols-outlined text-[18px]">workspace_premium</span>
-                  24/7 Availability
-                </span>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 text-sm"
+                >
+                  Book a Service
+                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                </Link>
+                <a
+                  href="tel:+441753677677"
+                  className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-7 py-3 rounded-lg font-bold hover:bg-white/20 transition-all text-sm"
+                >
+                  <span className="material-symbols-outlined text-base">call</span>
+                  01753 677 677
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Main Service Grid */}
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Airport Transfers – Featured */}
-            <div className="md:col-span-8 group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 md:h-full min-h-[400px] lg:min-h-[450px] relative">
-                <img
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  alt="Executive private jet and luxury sedan"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAanAwKfWPHFVUGlEcyFbjh-KDetavQm5PaDF6-3IXy7ope6xzNFZJ6uSq62hsoCo9YB_o21UTWn3Tfrr7SrCJw0LoVSCvvP2vXTs2M0PLTEjf2pT37MENlcNLNATSbK4_s2cT7QbZgdUYQJ13EiDJRvZcXgyXgE6RN0p3ymwS3LoxX7D9pAnH9RowwKHp3tSpzvfyfYPjyFLJPBCqP69WW84h8omLb5_Ajd8_8P0yoYzkGauspqPBiHgfVRR6PB1dvZYzQ8OETs2yj"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep-navy via-deep-navy/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6 sm:p-8 text-white w-full">
-                  <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                    <span className="material-symbols-outlined text-primary-fixed text-3xl sm:text-4xl">
-                      flight_takeoff
-                    </span>
-                    <h2 className="text-xl sm:text-2xl font-bold">Airport Transfers</h2>
+        {/* ── Stats bar ── */}
+        <div className="bg-primary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-5 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-white">
+            {[
+              { value: "33+", label: "Years of Service" },
+              { value: "250+", label: "Vehicles in Fleet" },
+              { value: "3,000+", label: "Weekly Transfers" },
+              { value: "24/7", label: "Always Available" },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-xl sm:text-2xl font-bold">{s.value}</p>
+                <p className="text-xs text-white/70 mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Services Grid ── */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-surface-grey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-12 sm:mb-16">
+              <span className="text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 rounded-full">
+                What We Offer
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-deep-navy mt-4 mb-4">
+                Our Full Range of Services
+              </h2>
+              <p className="text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto">
+                Ten specialist transport services, all delivered with the same hallmark of quality,
+                punctuality, and discretion that has defined Windsor Cars since 1991.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {services.map((service) => (
+                <div
+                  key={service.title}
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col"
+                >
+                  {/* Icon header */}
+                  <div className="px-7 pt-7 pb-5 flex items-start gap-5">
+                    <div className={`${service.accent} w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <span
+                        className="material-symbols-outlined text-white text-2xl"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        {service.icon}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-deep-navy leading-snug">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-primary font-semibold mt-0.5 tracking-wide">
+                        {service.subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm sm:text-base text-white/80 mb-5 max-w-xl">
-                    Serving Heathrow, Gatwick, Stansted, and Luton with precision. We track your
-                    flight in real-time to ensure your driver is waiting as soon as you land.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-primary-fixed font-bold hover:gap-4 transition-all text-sm sm:text-base"
-                  >
-                    Book Now <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
 
-            {/* London City & Weddings */}
-            <div className="md:col-span-4 flex flex-col gap-6">
-              {/* London City */}
-              <div className="flex-1 bg-white rounded-xl shadow-md service-card-hover transition-all overflow-hidden flex flex-col">
-                <div className="h-40 overflow-hidden relative">
-                  <img
-                    alt="London City Transfer"
-                    className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_cf2ZyOPEUUrROdoZRu7XwGDVkfemmbafV0QtKmeu9Doh043A35yHVuOchc71tfH3023HtAyPz686QFNTormnd-AcGaWnSFtfKzRgMaGMGgTBU6zUg5_qz8opwxrMJ2-LBfkqs_KitN1VmfBLLtlzp6ByucSegiZN-cRctABK11-6A9tp2xSo6eqRk2aLpZPriRBdXRjkxfTl2V0Oa3LhQ6W7SpVvJOyXzn7BETQ9YssuWYoehkhWcFlGwrZaU7dgMCOUWa-eRCML"
-                  />
-                </div>
-                <div className="p-5 sm:p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-bold text-deep-navy mb-2">London City</h3>
-                  <p className="text-sm sm:text-base text-on-surface-variant mb-4 flex-1">
-                    Navigate the capital's heart in comfort. Perfect for financial district
-                    meetings or central London shopping.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="text-primary font-bold inline-flex items-center gap-1 hover:underline text-sm"
-                  >
-                    Book Now <span className="material-symbols-outlined text-sm">open_in_new</span>
-                  </Link>
-                </div>
-              </div>
-              {/* Weddings */}
-              <div className="flex-1 bg-white rounded-xl shadow-md service-card-hover transition-all overflow-hidden flex flex-col">
-                <div className="h-40 overflow-hidden relative">
-                  <img
-                    alt="Wedding Chauffeur Service"
-                    className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDySzdKevyeQkemj4H_SWSNNZePpII3TZceQ5LvLuAJuAkkAF7H4HiVuDTYySMVNvFWxoIN-etZ15YYuLgREnH1JF8uOrAjHDAul5eWENMmgI4GA6mJUPdkTfk97Yk7XWkGwWAGUQefjI5hjUwZ70WKU9QOwzNTWr3npOtHaWhMSSpFWG33afhvEjX8RMHqsFuu4MzNTz9NcV3t9SAJey3mvQIc-KcK_dLpXwF-ZwK9-boKjOG74kNGZ_JfW3U2rxZMOmCn156U5AVy"
-                  />
-                </div>
-                <div className="p-5 sm:p-6 flex-1 flex flex-col">
-                  <h3 className="text-lg sm:text-xl font-bold text-deep-navy mb-2">Weddings</h3>
-                  <p className="text-sm sm:text-base text-on-surface-variant mb-4 flex-1">
-                    Arrive in elegance on your special day. Our pristine fleet adds a touch of
-                    class to your celebration.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="text-primary font-bold inline-flex items-center gap-1 hover:underline text-sm"
-                  >
-                    Book Now <span className="material-symbols-outlined text-sm">open_in_new</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+                  {/* Divider */}
+                  <div className="h-px bg-surface-container mx-7" />
 
-            {/* Featured: UK-Wide Executive Travel */}
-            <div className="md:col-span-12 mt-2 sm:mt-4">
-              <div className="relative rounded-2xl overflow-hidden h-[350px] sm:h-[400px] lg:h-[450px] shadow-lg group">
-                <img
-                  alt="UK-Wide Executive Travel"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9KfG8b_C5FcuLFfKqXilP-dG75iKafowlMc7WwLyYaKF7Hw05SKgokpsrL6Hr-BsdaA9TBz5KfzOw-hmhoOuuQyasFsYo0k7v_tDRdjysdK0bkDqW254T6QBxCJ2QLmaC9j-IhuDo7L_XquxXsDD8fcOdM9gmi3851GtEFOSCQzH3eUMg1UxX8RNZiqxfRTo1C6Tmlim038jLP7OE2O2schoXCE2DvM_n_BZPtQ9VwuHl_yAkSj3UwQIEGxHKkOAuBRCr-6J0GV6c"
-                />
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] flex items-center justify-end p-4 sm:p-8 lg:p-16">
-                  <div className="glass-overlay p-6 sm:p-8 lg:p-10 rounded-xl max-w-md sm:max-w-lg shadow-xl w-full sm:w-auto">
-                    <span className="text-primary font-bold text-xs tracking-widest uppercase mb-2 block">
-                      Premium Tier
-                    </span>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-deep-navy mb-3 sm:mb-4">
-                      UK-Wide Executive Travel
-                    </h3>
-                    <p className="text-on-surface-variant mb-5 sm:mb-6 text-sm sm:text-base">
-                      Long-distance travel redefined. Experience absolute silence and comfort as
-                      you travel between UK cities for business or pleasure.
+                  {/* Body */}
+                  <div className="px-7 py-5 flex-1 flex flex-col">
+                    <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed mb-5">
+                      {service.description}
                     </p>
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {service.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2.5 text-sm text-charcoal-text">
+                          <span
+                            className="material-symbols-outlined text-primary text-base flex-shrink-0"
+                            style={{ fontVariationSettings: "'FILL' 1" }}
+                          >
+                            check_circle
+                          </span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
                     <Link
                       href="/contact"
-                      className="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-bold hover:bg-deep-navy transition-colors text-sm sm:text-base"
+                      className="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all"
                     >
-                      Configure Route
+                      Enquire & Book
+                      <span className="material-symbols-outlined text-base">arrow_forward</span>
                     </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Conferences, Tourist, Local */}
-            <div className="md:col-span-4 bg-white rounded-xl shadow-md service-card-hover transition-all overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden relative">
-                <img
-                  alt="Corporate Conferences"
-                  className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqz14jBsrulUtY2JILO8SYnodR0nJfOMg9diOBTbJDpIfybJP7eTBcD1tnKRoOB1bv6niWyDLzweeV0hWmLoLRsI2EFBAdraMziHWABfMOr-G5jlbiOtTFeTXcBtXtbnRGmpTYyokDHlnpot5WDxU-3zd9I1MmgETyYjX5D2lcFyyvP_Z64zr4H9F52rtMnGE70BPkrx4yS-W7ZaLQQtYAEWUUnZlEVRMzH1uNW4ZfVAgrN1Mbz2o8WGxIafRjJfmgaHr7qwB6VvqZ"
-                />
-              </div>
-              <div className="p-6 sm:p-8 flex-1 flex flex-col">
-                <h3 className="text-lg sm:text-xl font-bold text-deep-navy mb-3">Conferences</h3>
-                <p className="text-sm sm:text-base text-on-surface-variant mb-6 flex-1">
-                  Coordinated group transport for corporate events. We manage the logistics so you
-                  can focus on the agenda.
-                </p>
-                <Link
-                  href="/contact"
-                  className="text-primary font-bold inline-flex items-center gap-1 hover:underline text-sm"
-                >
-                  Book Now <span className="material-symbols-outlined text-sm">open_in_new</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="md:col-span-4 bg-white rounded-xl shadow-md service-card-hover transition-all overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden relative">
-                <img
-                  alt="Tourist Day Service"
-                  className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuChssoo5VgthB2HEEZADSYtxmYNxeIKxdRuX8EOo9_Kwcd6rjXgQGL1N9IGysrEE6fEmkIsk956Glxl64BC44Vgv4Nnr0avkKaQc6CKGzpoFafmaE0xaFp8XBS4u4WHpqb3Zz_yxDFbMlOH3-6KB4c2pGXQsdO9kECh4EDabfA61AKWFKlD95v41U2iXgpsRa0dQBziMGBKb4YesiGmh5rYFZvy1LQhJh-1ZubyVUawBqMxUfm51enX6J6J2hWEj_fZ-06Fq7eOFXPG"
-                />
-              </div>
-              <div className="p-6 sm:p-8 flex-1 flex flex-col">
-                <h3 className="text-lg sm:text-xl font-bold text-deep-navy mb-3">Tourist Day Service</h3>
-                <p className="text-sm sm:text-base text-on-surface-variant mb-6 flex-1">
-                  Bespoke sightseeing tours. Discover Windsor Castle, Stonehenge, or the Cotswolds
-                  with a private guide.
-                </p>
-                <Link
-                  href="/contact"
-                  className="text-primary font-bold inline-flex items-center gap-1 hover:underline text-sm"
-                >
-                  Book Now <span className="material-symbols-outlined text-sm">open_in_new</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="md:col-span-4 bg-white rounded-xl shadow-md service-card-hover transition-all overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden relative">
-                <img
-                  alt="Local Pickup Service"
-                  className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1t_MsnPOpqVPKQ_S_tbKJFPdpic3nd1fWGhDMljd4Axr0qbA7cYGiauW6zRophCaFWo1wpQl2K4a6MyT8TzPF3sQlJ7XjNOCItLRDVGpf4_dOFrjT7zmAsthILA9lYsuImWn8hNr1ha757B0qEGBpLbcLSFfnFvqGINbFIefWyUkJNkuOZJr-Rukxy1JLQvWtUn9nPHXx2okEbGiL87q-mO4iIxA1QOzuBHvxTtiL7HHvpt9fdqB6fJrclPTpUxKKfHbImoCvjGmG"
-                />
-              </div>
-              <div className="p-6 sm:p-8 flex-1 flex flex-col">
-                <h3 className="text-lg sm:text-xl font-bold text-deep-navy mb-3">Local Pickups</h3>
-                <p className="text-sm sm:text-base text-on-surface-variant mb-6 flex-1">
-                  Elite local travel within Windsor and surrounding counties. The executive choice
-                  for everyday journeys.
-                </p>
-                <Link
-                  href="/contact"
-                  className="text-primary font-bold inline-flex items-center gap-1 hover:underline text-sm"
-                >
-                  Book Now <span className="material-symbols-outlined text-sm">open_in_new</span>
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-surface-grey py-12 sm:py-16">
+        {/* ── Why Choose Us ── */}
+        <section className="py-16 sm:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 rounded-full">
+                Our Commitment
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-deep-navy mt-4 mb-3">
+                Why Choose Windsor Cars?
+              </h2>
+              <p className="text-base text-on-surface-variant max-w-xl mx-auto">
+                For over three decades we have set the benchmark for luxury transport in Berkshire and beyond.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {pillars.map((p) => (
+                <div key={p.title} className="text-center p-6 rounded-2xl bg-surface-grey hover:bg-primary/5 transition-colors group">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <span
+                      className="material-symbols-outlined text-primary text-2xl"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      {p.icon}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-deep-navy mb-2">{p.title}</h3>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">{p.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── How It Works ── */}
+        <section className="py-16 sm:py-20 bg-deep-navy">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold tracking-widest uppercase text-white/50 border border-white/20 px-3 py-1 rounded-full">
+                Simple Process
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4 mb-3">
+                How It Works
+              </h2>
+              <p className="text-base text-white/60 max-w-xl mx-auto">
+                Booking your executive transfer takes less than two minutes.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {steps.map((step, i) => (
+                <div key={step.number} className="relative">
+                  {/* Connector line */}
+                  {i < steps.length - 1 && (
+                    <div className="hidden lg:block absolute top-7 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px border-t border-dashed border-white/20" />
+                  )}
+                  <div className="text-center">
+                    <div className="relative inline-flex mb-5">
+                      <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                        <span
+                          className="material-symbols-outlined text-white text-2xl"
+                          style={{ fontVariationSettings: "'FILL' 1" }}
+                        >
+                          {step.icon}
+                        </span>
+                      </div>
+                      <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center leading-none">
+                        {i + 1}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-white mb-2">{step.title}</h3>
+                    <p className="text-sm text-white/55 leading-relaxed">{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-deep-navy">
-              Ready to book your next journey?
+            <h2 className="text-3xl sm:text-4xl font-bold text-deep-navy mb-4">
+              Ready to Book Your Journey?
             </h2>
             <p className="text-base sm:text-lg text-on-surface-variant mb-8 max-w-xl mx-auto">
-              Our team is available 24/7 to assist with your booking or create a bespoke itinerary
-              for your specific travel needs.
+              Our team is available 24/7 to assist with bookings, quotes, or bespoke corporate accounts.
+              Get in touch and we'll handle the rest.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-block bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base hover:bg-deep-navy transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-9 py-4 rounded-lg font-bold hover:bg-primary-container transition-all shadow-lg text-sm"
               >
+                <span className="material-symbols-outlined text-base">edit_note</span>
                 Book Online
               </Link>
               <a
                 href="tel:+441753677677"
-                className="inline-block bg-white border-2 border-primary text-primary px-8 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base hover:bg-primary/5 transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-9 py-4 rounded-lg font-bold hover:bg-primary/5 transition-all text-sm"
               >
+                <span className="material-symbols-outlined text-base">call</span>
                 Call 01753 677 677
               </a>
             </div>
