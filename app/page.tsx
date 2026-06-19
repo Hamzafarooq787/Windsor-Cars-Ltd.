@@ -56,36 +56,12 @@ export default function Home() {
   ];
 
   const fleetCars = [
-    {
-      name: "Mercedes E-Class",
-      badge: "Business Class",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD_U9cykuhLVDGx4lN9BMYq5MUENudy9UPL07l4SGktbzCQJRwAiD9jVvJUaQ22vOq_dI2a54tTHIhNBlSsotHJqbBFnNJ3oOWKOy99i_Us5wxiyKa7_gXRLPr8vp0lKNSygNVhbRyfI3a93kCALL-KfFiLXQuEs2iRbS6Tek8mWZhoTjWE76sjzbOmLlBors6Gy46YBUs9AJy2GYPF39gGXJaov6HOEe3q1eC6L5YF7UO0Zv9WgMs26Vv9K6J9pWkvRm-s9r0cEYZA",
-    },
-    {
-      name: "Mercedes S-Class",
-      badge: "First Class",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXRQJ-tgLOwJlb2X2d0GwjuAB5DSYGGrwSnno5x9TeAx8XWGWZQ3DlyccXcwgnwKI8MoqfhHndaMCuPIPjlUMXLjlrBKnLoaVjOOldX954eB3BV_Hd2jadnEp-z2p8dRNSWpTXBW3sEFZYZBoyaSrKI5LXlYqVFdfcHpmaXw3NjFB4dLuYk2P2dbde9xR-Xa3LJAzjxLVa0-VMgZ0r9xInN27Ee6wP3_v_vtyPUFuRXDJDQOuFagmmZdK4GM4MwytVDGRnw1V1HQpO",
-    },
-    {
-      name: "BMW 5 Series",
-      badge: "Business Plus",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAbJOdCXtB2_JT6SYgZwZALrst5jQB4NK-UwXobhLjBG_f9qf6TFZkySapnzG7FkXF4FUV-Vn9zSRSoDGWOnngXHPHq1FqFF75w-HpMR5z9WezBf6BbXXhf3Gh5daj-Zggd9XlhVzRq-ZZfKLY9A01IeiUNUEzB7Dk_VhmsA6npXMc531dbc9BpkYpWupI-2dOz1AHyu8NbK3OyWeUTOLB2VL1QaMKW164qG1fRvwPex8tNKK1ZFnc4CFOMeDQI8TUJWIeH08UghOBB",
-    },
-    {
-      name: "Audi A6/A8",
-      badge: "Luxury Exec",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC816rp9TcxM0-2nOGsp-eeNtD8IMAdBbCGs8eN1DSiKJQeIUlv0wSlg65PPA6YaBkzb7NTEqzdCfWqkfqShTVqmtT3YH_f914bvIm0gWHj4B9ZC_VxUUzDOuLDygEzuYh6qeHt-Ip7JALVe7uR16zI1E00bch8l-waNVl4-4HOn-Zw-UT5yobq8G6PPe3FElj1yNFszKnfJSVwGsFiaRIlYztU8iZs506Zk3u4ADaC3QZa8oQ-Zxirn8ZRQyBt5yAwwB2bRDjoYjJ0",
-    },
-    {
-      name: "Mercedes V-Class",
-      badge: "6–8 Seater MPV",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0",
-    },
-    {
-      name: "Executive MPV",
-      badge: "Group Travel",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0",
-    },
+    { name: "Mercedes E-Class", badge: "Business Class", img: "/Stylish Mercedes E-Class in front of modern building.webp" },
+    { name: "Mercedes S-Class", badge: "First Class", img: "/Mercedes S-Class.webp" },
+    { name: "BMW 5 Series", badge: "Business Plus", img: "/BMW 5-Series.webp" },
+    { name: "Audi A6/A8", badge: "Luxury Exec", img: "/Sleek Audi sedan at luxury building.webp" },
+    { name: "Mercedes V-Class", badge: "6–8 Seater MPV", img: "/Mercedes V-Class.webp" },
+    { name: "Executive MPV", badge: "Group Travel", img: "/Executive MPV.webp" },
   ];
 
   const reviews = [
