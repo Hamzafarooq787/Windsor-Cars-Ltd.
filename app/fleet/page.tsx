@@ -66,7 +66,7 @@ export default function FleetPage() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Mercedes E-Class executive sedan"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_U9cykuhLVDGx4lN9BMYq5MUENudy9UPL07l4SGktbzCQJRwAiD9jVvJUaQ22vOq_dI2a54tTHIhNBlSsotHJqbBFnNJ3oOWKOy99i_Us5wxiyKa7_gXRLPr8vp0lKNSygNVhbRyfI3a93kCALL-KfFiLXQuEs2iRbS6Tek8mWZhoTjWE76sjzbOmLlBors6Gy46YBUs9AJy2GYPF39gGXJaov6HOEe3q1eC6L5YF7UO0Zv9WgMs26Vv9K6J9pWkvRm-s9r0cEYZA"
+                    src="/Stylish Mercedes E-Class in front of modern building.webp"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
@@ -101,7 +101,7 @@ export default function FleetPage() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Mercedes S-Class luxury sedan"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXRQJ-tgLOwJlb2X2d0GwjuAB5DSYGGrwSnno5x9TeAx8XWGWZQ3DlyccXcwgnwKI8MoqfhHndaMCuPIPjlUMXLjlrBKnLoaVjOOldX954eB3BV_Hd2jadnEp-z2p8dRNSWpTXBW3sEFZYZBoyaSrKI5LXlYqVFdfcHpmaXw3NjFB4dLuYk2P2dbde9xR-Xa3LJAzjxLVa0-VMgZ0r9xInN27Ee6wP3_v_vtyPUFuRXDJDQOuFagmmZdK4GM4MwytVDGRnw1V1HQpO"
+                    src="/Mercedes S-Class.webp"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
@@ -136,7 +136,7 @@ export default function FleetPage() {
                   <img
                     className="w-full h-full object-cover"
                     alt="BMW 5 Series executive sedan"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbJOdCXtB2_JT6SYgZwZALrst5jQB4NK-UwXobhLjBG_f9qf6TFZkySapnzG7FkXF4FUV-Vn9zSRSoDGWOnngXHPHq1FqFF75w-HpMR5z9WezBf6BbXXhf3Gh5daj-Zggd9XlhVzRq-ZVfKLY9A01IeiUNUEzB7Dk_VhmsA6npXMc531dbc9BpkYpWupI-2dOz1AHyu8NbK3OyWeUTOLB2VL1QaMKW164qG1fRvwPex8tNKK1ZFnc4CFOMeDQI8TUJWIeH08UghOBB"
+                    src="/BMW 5-Series.webp"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
@@ -171,7 +171,7 @@ export default function FleetPage() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Audi A8 luxury interior"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC816rp9TcxM0-2nOGsp-eeNtD8IMAdBbCGs8eN1DSiKJQeIUlv0wSlg65PPA6YaBkzb7NTEqzdCfWqkfqShTVqmtT3YH_f914bvIm0gWHj4B9ZC_VxUUzDOuLDygEzuYh6qeHt-Ip7JALVe7uR16zI1E00bch8l-waNVl4-4HOn-Zw-UT5yobq8G6PPe3FElj1yNFszKnfJSVwGsFiaRIlYztU8iZs506Zk3u4ADaC3QZa8oQ-Zxirn8ZRQyBt5yAwwB2bRDjoYjJ0"
+                    src="/Sleek Audi sedan at luxury building.webp"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
@@ -206,7 +206,7 @@ export default function FleetPage() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Mercedes V-Class executive people carrier"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsOs3L8LlzczKA7umtyWdDg0XH3g-8piwWK-GO_XNiC1C4w4qsoOXRiim0D4tLI5GQ8OTOwHTMaRVUreFXiPdACMiyYseADrFgk595xktKddAFv9Hy7cpz3u5H1zFNx5HtuhOGUELm6a1kFJDm04Z8VbRjcEfY9ZS-6R8s39LfyyuXvrEaZmNQxSr3It5gHrJCuxcR5gWmssSEOrITtq9m4C7y_xlANL7TRfGTs3h5F-8prWTCVQzQ9CxYEPIR1FXAxHFPGASLdpt0"
+                    src="/Mercedes V-Class.webp"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
