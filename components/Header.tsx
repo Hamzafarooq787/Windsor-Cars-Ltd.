@@ -95,7 +95,7 @@ export default function Header() {
                 href={item.path}
                 className={`flex items-center px-6 py-4 text-sm font-medium border-b border-gray-100 transition-colors ${
                   isActive
-                    ? "text-primary bg-blue-50 font-bold"
+                    ? "text-primary bg-primary/10 font-bold"
                     : "text-on-surface-variant hover:text-primary hover:bg-gray-50"
                 }`}
               >
