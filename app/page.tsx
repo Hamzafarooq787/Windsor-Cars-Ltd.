@@ -26,32 +26,32 @@ export default function Home() {
     {
       name: "Airport Transfers",
       desc: "Real-time flight monitoring and meet-and-greet at all major London airports.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv1Ul70_NBTVSmeOxm1YOmR2wlXT_gIvMr1FY2Hq2CBk5q0Ocjfg99f3yNfjUHs1RvHc7-Jm0ORB24c3BRpE6cJ9-xAGOaeyoS_L4FOYcXsrkS8Sk0GvXN5XMVShRqDRgH-1FWBhB0EXjixy1YhXbcHwBF2j__kkqIWifDj7P0GHVTQ2q_Dq39yVcngjr22fJIKTULvzpJgU3_V_FUf1elFxZvCVWjyKzw84Hr59s2WsOxDVn_j5zEZg8qC7tgpzU0FEKWbT8a1S5F",
+      img: "/Airport Transfer Luxury Pickup Service.webp",
     },
     {
-      name: "Executive Travel",
-      desc: "Premium corporate solutions for busy professionals.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDspdMsrbcnhMt5Dc_5MWCMCm-0q7PUJ_spFy76rdiehsuQ6BNkd1HP5eMSJFFBjldsQL78StEFbKAOQy016YhU4Tbe4DSCFBorh8_BFna2LimDTfRbau2evRNOGA2N1YJSLILNwsso5ibnxgEiVy1tZbc5865a4JXlrIX6jpa2fm5Y4p8mj7FAs87myv9uavl5EAiNMnUOJLkhpXcqgJFrglQoluFpPBaTXCP1qR7VKtlj-KtLZdPkRA9yf2iXN9KdkPbivdAuixjC",
+      name: "City to City",
+      desc: "Comfortable, punctual inter-city transfers between all major UK cities.",
+      img: "/City to City Transfer Service.webp",
     },
     {
       name: "Wedding Cars",
       desc: "Bespoke wedding car hire to make your special day even more memorable.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDlgq81HJ1I3xlLpkEi-Q4QiiB6qnDJttbAzqZjAG8-9bzfRlM0M6iX01igr-JeVFN6ajL2mnqDfl-n3arW2DlT_LfPvw_NaqrzTG9xrMJAWhD3PdQUT49Brp-kXazTuetGZbRQOzro2VpHYQAGe2nh5ZL060p6DpZ5drzavUXJIEtkEE9sawA2M4A24gKx_j3lx8Z6YtATjnxwsjNjUcSbENgX1xnQYyclT9Iu72pPzbmu_dkcYyifh_bTdTxdV2ppH2YVx_thIYCG",
+      img: "/Luxury wedding arrival on city street.webp",
     },
     {
-      name: "London City Travel",
-      desc: "Navigate the city in unparalleled comfort and style.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-s1IHiAkjNJjti0uNWyWgMQiXTVgvD_Eo5iEOA6I5cL2g2wG8bjbTcD0Eilr-Pr4TrLN4Kch3Tc95w4j4YzOdgtE94Dkvoqr2t0LSyiIvekWF0UeJM7uxCIdj7edcpRMLD_D_nqiw43AaADHLh4sNdiomTWcHAChTBsoryCVSzOveJazRrl3xlg_eFcbrUiSRulxBf1e1tOwKyp74PEua66omfHE2dnSFhYbmIVWZNWfIecWMnNK6MNAAabMbBag4e981UcqLL-nK",
+      name: "Special Events",
+      desc: "Glamorous arrivals for proms, galas, anniversaries, and every milestone.",
+      img: "/Special Events Glamorous arrival at a luxury event.webp",
     },
     {
       name: "Corporate Events",
-      desc: "Professional transport solutions for conferences, meetings and corporate hospitality.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDspdMsrbcnhMt5Dc_5MWCMCm-0q7PUJ_spFy76rdiehsuQ6BNkd1HP5eMSJFFBjldsQL78StEFbKAOQy016YhU4Tbe4DSCFBorh8_BFna2LimDTfRbau2evRNOGA2N1YJSLILNwsso5ibnxgEiVy1tZbc5865a4JXlrIX6jpa2fm5Y4p8mj7FAs87myv9uavl5EAiNMnUOJLkhpXcqgJFrglQoluFpPBaTXCP1qR7VKtlj-KtLZdPkRA9yf2iXN9KdkPbivdAuixjC",
+      desc: "Professional transport for conferences, meetings, and corporate hospitality.",
+      img: "/Corporate Transfer figures in a sleek cityscape.webp",
     },
     {
       name: "Tourist Day Service",
       desc: "Explore the UK's finest landmarks in absolute luxury with a knowledgeable chauffeur.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv1Ul70_NBTVSmeOxm1YOmR2wlXT_gIvMr1FY2Hq2CBk5q0Ocjfg99f3yNfjUHs1RvHc7-Jm0ORB24c3BRpE6cJ9-xAGOaeyoS_L4FOYcXsrkS8Sk0GvXN5XMVShRqDRgH-1FWBhB0EXjixy1YhXbcHwBF2j__kkqIWifDj7P0GHVTQ2q_Dq39yVcngjr22fJIKTULvzpJgU3_V_FUf1elFxZvCVWjyKzw84Hr59s2WsOxDVn_j5zEZg8qC7tgpzU0FEKWbT8a1S5F",
+      img: "/Tourist Day Service.webp",
     },
   ];
 
@@ -145,7 +145,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover opacity-20"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxSB0j6wsGemYcP9BNG3xIYQtf_Y_2ESTxUSiqcAw-CuBD8HplaeQ-n0NwcE784P6kHtXeSSQoTzir_s8U5qZ4DLcC89p4dHUG6AzmaCMhqPg4cfOveqRIIMO6BJqrPTuZ39UHkOlx6qSw4b-BObACBtY5nqM5IqyWgyfyYlAGmGgMfvMZGvDtfIxZ4LwvyIOYL-_TOx4ubFxbX9fTUsXldI8G6UYLQmUt-V51vpRrmkZ_qQAaLUQNxN2r7dH_KGP-pBTo8yeVX4i"
+              src="/Luxury Chauffeuring Home Page Hero section Image.webp"
               alt="Luxury chauffeur car"
             />
           </div>
@@ -475,7 +475,7 @@ export default function Home() {
               {/* Right: Image */}
               <div className="relative w-full max-w-md lg:max-w-lg flex-shrink-0 order-1 lg:order-2">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVApfdnJBL9WvgC1UFwVddW9HIR6sEY5XMol-8asv_H8ADbLZjoDjf2ngWlbVOTr7SYowSmnrQ5bBZnFeoNhgab60hx_jsfHZlWYuxQK3G78tjyi78fGCrA_LOvOAgff5M"
+                  src="/Professional Chauffeuring Services.webp"
                   alt="Professional chauffeur"
                   className="w-full h-64 sm:h-80 lg:h-[480px] object-cover rounded-2xl shadow-xl"
                 />
@@ -505,7 +505,7 @@ export default function Home() {
               {/* Left: car image */}
               <div className="w-full lg:w-1/2 flex-shrink-0">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAanAwKfWPHFVUGlEcyFbjh-KDetavQm5PaDF6-3IXy7ope6xzNFZJ6uSq62hsoCo9YB_o21UTWn3Tfrr7SrCJw0LoVSCvvP2vXTs2M0PLTEjf2pT37MENlcNLNATSbK4_s2cT7QbZgdUYQJ13EiDJRvZcXgyXgE6RN0p3ymwS3LoxX7D9pAnH9RowwKHp3tSpzvfyfYPjyFLJPBCqP69WW84h8omLb5_Ajd8_8P0yoYzkGauspqPBiHgfVRR6PB1dvZYzQ8OETs2yj"
+                  src="/Luxury car arrival at dusk.webp"
                   alt="Executive car"
                   className="w-full h-64 sm:h-80 lg:h-[520px] object-cover rounded-2xl shadow-lg"
                 />
@@ -649,7 +649,7 @@ export default function Home() {
         <section className="relative py-16 sm:py-24 bg-[#0d0b22] overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxSB0j6wsGemYcP9BNG3xIYQtf_Y_2ESTxUSiqcAw-CuBD8HplaeQ-n0NwcE784P6kHtXeSSQoTzir_s8U5qZ4DLcC89p4dHUG6AzmaCMhqPg4cfOveqRIIMO6BJqrPTuZ39UHkOlx6qSw4b-BObACBtY5nqM5IqyWgyfyYlAGmGgMfvMZGvDtfIxZ4LwvyIOYL-_TOx4ubFxbX9fTUsXldI8G6UYLQmUt-V51vpRrmkZ_qQAaLUQNxN2r7dH_KGP-pBTo8yeVX4i"
+              src="/Luxury Chauffeuring Home Page Hero section Image.webp"
               alt=""
               className="w-full h-full object-cover opacity-20"
             />
@@ -829,7 +829,7 @@ export default function Home() {
         <section className="relative py-16 sm:py-24 bg-deep-navy overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqxSB0j6wsGemYcP9BNG3xIYQtf_Y_2ESTxUSiqcAw-CuBD8HplaeQ-n0NwcE784P6kHtXeSSQoTzir_s8U5qZ4DLcC89p4dHUG6AzmaCMhqPg4cfOveqRIIMO6BJqrPTuZ39UHkOlx6qSw4b-BObACBtY5nqM5IqyWgyfyYlAGmGgMfvMZGvDtfIxZ4LwvyIOYL-_TOx4ubFxbX9fTUsXldI8G6UYLQmUt-V51vpRrmkZ_qQAaLUQNxN2r7dH_KGP-pBTo8yeVX4i"
+              src="/Luxury Chauffeuring Home Page Hero section Image.webp"
               alt=""
               className="w-full h-full object-cover opacity-10"
             />

@@ -18,6 +18,7 @@ const services = [
       "Fixed pricing — no surge charges",
     ],
     accent: "bg-primary",
+    img: "/Airport Transfer Luxury Pickup Service.webp",
   },
   {
     icon: "business_center",
@@ -32,6 +33,22 @@ const services = [
       "Meet at reception or kerbside",
     ],
     accent: "bg-primary-container",
+    img: "/Executive arrival at luxury conference center.webp",
+  },
+  {
+    icon: "route",
+    title: "City to City Transfers",
+    subtitle: "London · Birmingham · Manchester · Leeds · Beyond",
+    description:
+      "Seamless point-to-point transfers between UK cities in absolute comfort. Ideal for business travel, family trips, or whenever flying or the train won't do.",
+    features: [
+      "Door-to-door across all major UK cities",
+      "Fixed quote — no surprise charges",
+      "Comfortable, spacious executive vehicles",
+      "Flexible scheduling — early or late",
+    ],
+    accent: "bg-primary",
+    img: "/City to City Transfer Service.webp",
   },
   {
     icon: "favorite",
@@ -46,13 +63,14 @@ const services = [
       "Photography-friendly presentation",
     ],
     accent: "bg-tertiary-container",
+    img: "/Luxury wedding arrival on city street.webp",
   },
   {
     icon: "celebration",
-    title: "Special Occasions",
-    subtitle: "Proms · Anniversaries · Birthdays · Nights Out",
+    title: "Special Events",
+    subtitle: "Proms · Anniversaries · Birthdays · Galas · Nights Out",
     description:
-      "Celebrate life's milestones in luxury. Whether it's a prom night, anniversary dinner, or birthday treat, we make every special moment extraordinary.",
+      "Celebrate life's milestones in luxury. Whether it's a prom night, anniversary dinner, or a black-tie gala, we make every special moment extraordinary.",
     features: [
       "Prom packages for school leavers",
       "Champagne greeting on request",
@@ -60,6 +78,22 @@ const services = [
       "Child seats available",
     ],
     accent: "bg-secondary",
+    img: "/Special Events Glamorous arrival at a luxury event.webp",
+  },
+  {
+    icon: "schedule",
+    title: "Hourly Hire",
+    subtitle: "As-Directed · Corporate · Personal",
+    description:
+      "Need a chauffeur for a few hours? Our hourly hire service gives you a dedicated driver and vehicle at your disposal — perfect for a busy day of meetings or errands.",
+    features: [
+      "Minimum 2-hour bookings",
+      "Wait-and-return between stops",
+      "Flexible itinerary — you set the pace",
+      "Available city-wide 24/7",
+    ],
+    accent: "bg-primary",
+    img: "/Hourly Hire Luxury arrival in the city.webp",
   },
   {
     icon: "location_city",
@@ -73,7 +107,8 @@ const services = [
       "Wait-and-return options",
       "Concierge-style service",
     ],
-    accent: "bg-primary",
+    accent: "bg-primary-container",
+    img: "/Luxury pickup at twilight airport terminal Service.webp",
   },
   {
     icon: "groups",
@@ -87,7 +122,8 @@ const services = [
       "Custom itinerary planning",
       "Dedicated event coordinator",
     ],
-    accent: "bg-primary-container",
+    accent: "bg-primary",
+    img: "/Corporate Transfer figures in a sleek cityscape.webp",
   },
   {
     icon: "directions_car",
@@ -102,6 +138,7 @@ const services = [
       "Fixed quote — no surprises",
     ],
     accent: "bg-tertiary-container",
+    img: "/Luxury car arrival at dusk.webp",
   },
   {
     icon: "anchor",
@@ -116,6 +153,7 @@ const services = [
       "Return transfers coordinated",
     ],
     accent: "bg-secondary",
+    img: "/Luxury pickup at twilight airport terminal Service.webp",
   },
   {
     icon: "explore",
@@ -130,6 +168,7 @@ const services = [
       "Hotel pick-up & drop-off",
     ],
     accent: "bg-primary",
+    img: "/Tourist Day Service.webp",
   },
   {
     icon: "home_pin",
@@ -144,6 +183,7 @@ const services = [
       "Track via real-time updates",
     ],
     accent: "bg-primary-container",
+    img: "/Local Pickups.webp",
   },
 ];
 
@@ -171,7 +211,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLR0zJLm7kDq0Rj7PYkxi_rCe1JGK3_AtYqM8jEjOa_PeG5m63bHLesbukyN6f8E71_YJmEwFaWmBbZcnKTMgsrfSAZ94WN2Ajnacg5MCd3Xv0q_biwgzWjMt9xUPmg3tYfgFpafFsIUXxnj55ZUApXEwuWpfAbYV6SbgVhJhgPY2ylbkVj-P7b70uTnuFInnyutyX5wI5MRjAWaqQliyy65wjsro7qZcr5m5AQH6JBciqQjswK_RW4cgYZIwqcxihkPuZPCPvvLgc"
+              src="/Services Page Hero Section Image.webp"
               alt="Luxury chauffeur service"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/95 via-deep-navy/75 to-deep-navy/30" />
@@ -190,17 +230,17 @@ export default function ServicesPage() {
                 From airport transfers to UK-wide corporate travel, Windsor Cars has provided premium
                 chauffeur services since 1991. Explore our full range of tailored transport solutions.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 text-sm"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-7 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 text-sm"
                 >
                   Book a Service
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
                 </Link>
                 <a
                   href="tel:+441753677677"
-                  className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-7 py-3 rounded-lg font-bold hover:bg-white/20 transition-all text-sm"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white px-7 py-3 rounded-lg font-bold hover:bg-white/20 transition-all text-sm"
                 >
                   <span className="material-symbols-outlined text-base">call</span>
                   01753 677 677
@@ -228,9 +268,9 @@ export default function ServicesPage() {
         </div>
 
         {/* ── Services Grid ── */}
-        <section className="py-16 sm:py-20 lg:py-24 bg-surface-grey">
+        <section className="py-14 sm:py-20 lg:py-24 bg-surface-grey">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-            <div className="text-center mb-12 sm:mb-16">
+            <div className="text-center mb-10 sm:mb-14">
               <span className="text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 rounded-full">
                 What We Offer
               </span>
@@ -238,7 +278,7 @@ export default function ServicesPage() {
                 Our Full Range of Services
               </h2>
               <p className="text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto">
-                Ten specialist transport services, all delivered with the same hallmark of quality,
+                Twelve specialist transport services, all delivered with the same hallmark of quality,
                 punctuality, and discretion that has defined Windsor Cars since 1991.
               </p>
             </div>
@@ -249,18 +289,28 @@ export default function ServicesPage() {
                   key={service.title}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col"
                 >
-                  {/* Icon header */}
-                  <div className="px-7 pt-7 pb-5 flex items-start gap-5">
-                    <div className={`${service.accent} w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  {/* Service photo */}
+                  <div className="h-44 sm:h-52 overflow-hidden relative flex-shrink-0">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  </div>
+
+                  {/* Icon + title */}
+                  <div className="px-6 pt-5 pb-4 flex items-start gap-4">
+                    <div className={`${service.accent} w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0`}>
                       <span
-                        className="material-symbols-outlined text-white text-2xl"
+                        className="material-symbols-outlined text-white text-xl"
                         style={{ fontVariationSettings: "'FILL' 1" }}
                       >
                         {service.icon}
                       </span>
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-deep-navy leading-snug">
+                      <h3 className="text-base sm:text-lg font-bold text-deep-navy leading-snug">
                         {service.title}
                       </h3>
                       <p className="text-xs text-primary font-semibold mt-0.5 tracking-wide">
@@ -270,14 +320,14 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px bg-surface-container mx-7" />
+                  <div className="h-px bg-surface-container mx-6" />
 
                   {/* Body */}
-                  <div className="px-7 py-5 flex-1 flex flex-col">
-                    <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed mb-5">
+                  <div className="px-6 py-5 flex-1 flex flex-col">
+                    <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed mb-4">
                       {service.description}
                     </p>
-                    <ul className="space-y-2 mb-6 flex-1">
+                    <ul className="space-y-2 mb-5 flex-1">
                       {service.features.map((f) => (
                         <li key={f} className="flex items-center gap-2.5 text-sm text-charcoal-text">
                           <span
@@ -305,9 +355,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Why Choose Us ── */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-14 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10 sm:mb-12">
               <span className="text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 rounded-full">
                 Our Commitment
               </span>
@@ -318,19 +368,19 @@ export default function ServicesPage() {
                 For over three decades we have set the benchmark for luxury transport in Berkshire and beyond.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
               {pillars.map((p) => (
-                <div key={p.title} className="text-center p-6 rounded-2xl bg-surface-grey hover:bg-primary/5 transition-colors group">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                <div key={p.title} className="text-center p-5 sm:p-6 rounded-2xl bg-surface-grey hover:bg-primary/5 transition-colors group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                     <span
-                      className="material-symbols-outlined text-primary text-2xl"
+                      className="material-symbols-outlined text-primary text-xl sm:text-2xl"
                       style={{ fontVariationSettings: "'FILL' 1" }}
                     >
                       {p.icon}
                     </span>
                   </div>
-                  <h3 className="font-bold text-deep-navy mb-2">{p.title}</h3>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">{p.body}</p>
+                  <h3 className="font-bold text-deep-navy mb-2 text-sm sm:text-base">{p.title}</h3>
+                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -338,9 +388,9 @@ export default function ServicesPage() {
         </section>
 
         {/* ── How It Works ── */}
-        <section className="py-16 sm:py-20 bg-deep-navy">
+        <section className="py-14 sm:py-20 bg-deep-navy">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10 sm:mb-12">
               <span className="text-xs font-bold tracking-widest uppercase text-white/50 border border-white/20 px-3 py-1 rounded-full">
                 Simple Process
               </span>
@@ -351,18 +401,17 @@ export default function ServicesPage() {
                 Booking your executive transfer takes less than two minutes.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {steps.map((step, i) => (
                 <div key={step.number} className="relative">
-                  {/* Connector line */}
                   {i < steps.length - 1 && (
                     <div className="hidden lg:block absolute top-7 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px border-t border-dashed border-white/20" />
                   )}
                   <div className="text-center">
-                    <div className="relative inline-flex mb-5">
-                      <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                    <div className="relative inline-flex mb-4">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
                         <span
-                          className="material-symbols-outlined text-white text-2xl"
+                          className="material-symbols-outlined text-white text-xl sm:text-2xl"
                           style={{ fontVariationSettings: "'FILL' 1" }}
                         >
                           {step.icon}
@@ -372,8 +421,8 @@ export default function ServicesPage() {
                         {i + 1}
                       </span>
                     </div>
-                    <h3 className="font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-sm text-white/55 leading-relaxed">{step.body}</p>
+                    <h3 className="font-bold text-white mb-2 text-sm sm:text-base">{step.title}</h3>
+                    <p className="text-xs sm:text-sm text-white/55 leading-relaxed">{step.body}</p>
                   </div>
                 </div>
               ))}
@@ -382,7 +431,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-14 sm:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-deep-navy mb-4">
               Ready to Book Your Journey?
