@@ -15,7 +15,7 @@ export default function FleetPage() {
             <img
               className="w-full h-full object-cover brightness-50"
               alt="Luxury executive sedan"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqeptP40ZFjqx7aUmov7Dvjxj0nqw8mn-1qet6CmHcARb1WmmpjE4o5GY2eV9ckjrRFatjECS6Q1tBMqD-4Yvmx3HYzlYagpA0f-KhICRw485OGmd2NjZvq1UFWpUwfz9qE9ItFPm80O1fef1rfZaenc86nhrWYDag7gejAAbrfFEol5cychMBq6JTZQm008qj0nkBJOewQxMfR71I33cCv8csnagu8EG-9gvGWURfRO_zT4RXNjACoOFD_LL3Thcy-kD1pPyMo__d"
+              src="/Luxury car arrival at dusk.webp"
             />
           </div>
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24">

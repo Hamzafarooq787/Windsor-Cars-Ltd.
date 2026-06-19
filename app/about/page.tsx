@@ -35,7 +35,7 @@ export default function AboutPage() {
             <img
               alt="Executive Chauffeur Service"
               className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGqaTWcrSGchv0PH3bgv7WluWUcQ641rqb7dDfW39-hXrWoAHNjI0lWStc2Pdorhk7XpxTvKZWh60sIVcB1_1dJ_gncxgbTPEzOzkZEwNAoPHaim4blDgA-0eiJUEeT8Ohknu3DxaExFfSTGcEh_SkMcKE64OT_Qllx7fLjKemeSxDghW1ugD5ECTuW5uAPjqEKz56l6OI1Bc6oblf4DIeXt9qdWnEd6rVb9aRk_7Jd9m6a5AKfCdyp9myynYfu04cMTIEAOLDnysp"
+              src="/Professional Chauffeuring Services.webp"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/90 via-deep-navy/70 to-transparent"></div>
           </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 <img
                   alt="Professional Chauffeur"
                   className="rounded-xl shadow-2xl w-full"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVApfdnJBL9WvgC1UFwVddW9HIR6sEY5XMol-8asv_H8ADbLZjoDjf2ngWlbVOTr7SYowSmnrQ5bBZnFeoNhgab60hx_jsfHZlWUbfyiaXeDG4E-gLnS1UMGXLo4DkdYCLFW5TqBsQ_0V275DEPtJ8xJvQ_K9DuWZBUU5wmVb-brXf3OJe0KRx1HZsV35BsK0erCKgamdRnOPbAJHUK-tIDQjsLISiVPkHbM13BC9-IDiyWYuxQK3G78tjyi78fGCrA_LOvOAgff5M"
+                  src="/Professional Chauffeuring Services.webp"
                 />
                 <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-8 bg-primary text-white p-5 sm:p-8 rounded-xl hidden sm:block">
                   <p className="text-2xl sm:text-3xl font-bold">100%</p>
