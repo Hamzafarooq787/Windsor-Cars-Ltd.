@@ -176,7 +176,7 @@ export default function Home() {
           </div>
 
           {/* Marquee ticker */}
-          <div className="relative z-10 bg-primary/80 py-2 overflow-hidden mt-14 md:mt-24">
+          <div className="relative z-10 bg-primary/80 py-2 overflow-hidden mt-16 sm:mt-20">
             <div className="flex animate-marquee whitespace-nowrap">
               {[...marqueeItems, ...marqueeItems].map((item, i) => (
                 <span
